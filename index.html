@@ -1,0 +1,2030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engkape POS — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#faf7f3;color:#1a1208;overflow-x:hidden;}
+
+:root{
+  --amber:#c8813a;
+  --amber2:#e8a255;
+  --amber-light:#fff5ec;
+  --brown:#6b4c2a;
+  --cream:#faf7f3;
+  --cream2:#f5f0eb;
+  --cream3:#ede5d8;
+  --text:#1a1208;
+  --text2:#6b5c4e;
+  --text3:#a0907e;
+}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  background:linear-gradient(160deg,#1a1208 0%,#2d1f0e 45%,#3d2810 100%);
+  display:flex;flex-direction:column;
+  position:relative;overflow:hidden;
+}
+.hero-grain{
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:0.6;pointer-events:none;
+}
+.hero-circles{position:absolute;inset:0;pointer-events:none;}
+.hero-circles span{
+  position:absolute;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,129,58,0.18),transparent 70%);
+}
+.hero-circles span:nth-child(1){width:600px;height:600px;top:-100px;right:-100px;}
+.hero-circles span:nth-child(2){width:400px;height:400px;bottom:50px;left:-80px;background:radial-gradient(circle,rgba(232,162,85,0.1),transparent 70%);}
+
+nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 60px;position:relative;z-index:2;
+}
+.nav-logo{display:flex;align-items:center;gap:10px;}
+.nav-logo-mark{
+  width:38px;height:38px;border-radius:11px;
+  background:linear-gradient(135deg,var(--amber),var(--amber2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:19px;font-weight:800;color:#fff;
+  box-shadow:0 4px 16px rgba(200,129,58,0.45);
+}
+.nav-logo-text{font-size:18px;font-weight:800;color:#fff;letter-spacing:-0.3px;}
+.nav-logo-text span{color:var(--amber2);}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-links a{font-size:13px;font-weight:600;color:rgba(255,255,255,0.55);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s;}
+.nav-links a:hover{color:#fff;}
+.nav-cta{
+  padding:9px 20px;background:linear-gradient(135deg,var(--amber),var(--amber2));
+  border-radius:10px;color:#fff;font-size:13px;font-weight:700;
+  text-decoration:none;letter-spacing:0.02em;
+  box-shadow:0 4px 14px rgba(200,129,58,0.4);
+  transition:box-shadow 0.2s,transform 0.2s;
+}
+.nav-cta:hover{box-shadow:0 6px 20px rgba(200,129,58,0.55);transform:translateY(-1px);}
+
+.hero-body{
+  flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;
+  padding:60px 60px 0;position:relative;z-index:2;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(200,129,58,0.15);border:1px solid rgba(200,129,58,0.3);
+  border-radius:20px;padding:6px 14px;margin-bottom:28px;
+  font-size:12px;font-weight:700;color:var(--amber2);letter-spacing:0.06em;text-transform:uppercase;
+}
+.hero-badge span{width:6px;height:6px;border-radius:50%;background:var(--amber2);display:inline-block;}
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(52px,7vw,88px);
+  font-weight:900;
+  color:#fff;
+  line-height:1.05;
+  letter-spacing:-2px;
+  margin-bottom:24px;
+  max-width:800px;
+}
+.hero-title em{font-style:italic;color:var(--amber2);}
+.hero-subtitle{
+  font-size:18px;font-weight:500;color:rgba(255,255,255,0.55);
+  max-width:520px;line-height:1.7;margin-bottom:44px;
+}
+.hero-actions{display:flex;align-items:center;gap:14px;margin-bottom:60px;}
+.btn-primary{
+  padding:14px 28px;
+  background:linear-gradient(135deg,var(--amber),var(--amber2));
+  border-radius:14px;color:#fff;font-size:15px;font-weight:700;
+  text-decoration:none;letter-spacing:0.01em;
+  box-shadow:0 6px 24px rgba(200,129,58,0.45);
+  transition:all 0.2s;
+}
+.btn-primary:hover{box-shadow:0 8px 30px rgba(200,129,58,0.6);transform:translateY(-2px);}
+.btn-secondary{
+  padding:14px 28px;background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:14px;color:rgba(255,255,255,0.75);font-size:15px;font-weight:600;
+  text-decoration:none;transition:all 0.2s;
+}
+.btn-secondary:hover{background:rgba(255,255,255,0.12);color:#fff;}
+
+/* hero screenshot */
+.hero-screen{
+  width:100%;max-width:1000px;
+  border-radius:20px 20px 0 0;
+  background:#1a1208;
+  border:1px solid rgba(255,255,255,0.1);border-bottom:none;
+  overflow:hidden;
+  box-shadow:0 -20px 80px rgba(0,0,0,0.4);
+}
+.screen-bar{
+  background:#242018;padding:12px 16px;
+  display:flex;align-items:center;gap:8px;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.screen-dot{width:10px;height:10px;border-radius:50%;}
+.screen-ui{padding:0;background:#f5f0eb;}
+.screen-topbar{background:#fff;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #efe9e0;}
+.s-logo{display:flex;align-items:center;gap:7px;}
+.s-logomark{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#c8813a,#e8a255);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;}
+.s-logotext{font-size:12px;font-weight:800;color:#1a1a1a;}
+.s-logotext span{color:#c8813a;}
+.s-nav{display:flex;gap:3px;background:#f5f0eb;border-radius:8px;padding:3px;}
+.s-navbtn{padding:4px 10px;border-radius:6px;font-size:10px;font-weight:600;color:#a0907e;}
+.s-navbtn.active{background:#fff;color:#c8813a;}
+.s-right{display:flex;align-items:center;gap:8px;}
+.s-clock{font-size:10px;font-weight:600;color:#6b5c4e;}
+.s-status{background:#edfaf2;border-radius:10px;padding:3px 7px;font-size:9px;font-weight:600;color:#2d9a5f;}
+.s-theme{width:24px;height:24px;border-radius:7px;background:#f5f0eb;display:flex;align-items:center;justify-content:center;font-size:12px;}
+
+.screen-body{display:grid;grid-template-columns:1fr 200px;}
+.screen-left{padding:12px;background:#f5f0eb;}
+.screen-search{background:#fff;border-radius:10px;padding:7px 12px;display:flex;align-items:center;gap:7px;margin-bottom:10px;border:1px solid #efe9e0;}
+.screen-search-icon{font-size:11px;color:#c0b0a0;}
+.screen-search-text{font-size:10px;color:#c0b0a0;}
+.screen-cats{display:flex;gap:5px;margin-bottom:10px;}
+.s-cat{padding:5px 10px;background:#fff;border:1px solid #efe9e0;border-radius:10px;font-size:9px;font-weight:600;color:#6b5c4e;}
+.s-cat.active{background:linear-gradient(135deg,#c8813a,#e8a255);border-color:transparent;color:#fff;}
+.screen-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
+.s-card{background:#fff;border-radius:10px;padding:8px;border:1px solid #f0eae0;}
+.s-card:hover{border-color:#c8813a;}
+.s-emoji{font-size:16px;margin-bottom:4px;}
+.s-name{font-size:8px;font-weight:700;color:#1a1a1a;line-height:1.3;margin-bottom:2px;}
+.s-price{font-size:8px;font-weight:800;color:#c8813a;}
+.screen-right{background:#fff;border-left:1px solid #efe9e0;padding:10px;}
+.s-bills-title{font-size:11px;font-weight:800;color:#1a1a1a;margin-bottom:8px;}
+.s-item{display:flex;align-items:center;gap:6px;padding:5px 0;border-bottom:1px solid #f7f2ec;}
+.s-item-emoji{width:24px;height:24px;border-radius:6px;background:#f5f0eb;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;}
+.s-item-name{font-size:9px;font-weight:700;color:#1a1a1a;flex:1;}
+.s-item-price{font-size:9px;font-weight:700;color:#c8813a;}
+.s-total-row{display:flex;justify-content:space-between;padding:2px 0;font-size:8px;color:#a0907e;}
+.s-grand{display:flex;justify-content:space-between;padding:5px 0 0;margin-top:3px;border-top:1px solid #ede5d8;font-size:11px;font-weight:800;color:#1a1a1a;}
+.s-grand span:last-child{color:#c8813a;}
+.s-pay-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin:8px 0;}
+.s-pay-btn{padding:5px 4px;background:#f5f0eb;border:1px solid #ede5d8;border-radius:7px;font-size:8px;font-weight:600;color:#6b5c4e;text-align:center;}
+.s-charge{width:100%;padding:8px;background:linear-gradient(135deg,#c8813a,#e8a255);border-radius:9px;font-size:9px;font-weight:800;color:#fff;text-align:center;margin-top:2px;}
+
+/* ── STATS ── */
+.stats-band{
+  background:var(--amber);
+  padding:32px 60px;
+  display:flex;align-items:center;justify-content:center;gap:0;
+}
+.stat-item{
+  flex:1;text-align:center;
+  padding:0 40px;
+  border-right:1px solid rgba(255,255,255,0.2);
+}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:#fff;letter-spacing:-1px;line-height:1;}
+.stat-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:0.08em;margin-top:5px;}
+
+/* ── SECTION WRAPPER ── */
+.section{padding:96px 60px;}
+.section-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:700;color:var(--amber);
+  text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px;
+}
+.section-label::before{content:'';width:24px;height:2px;background:var(--amber);display:block;}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,4.5vw,56px);
+  font-weight:900;color:var(--text);
+  line-height:1.1;letter-spacing:-1.5px;
+  margin-bottom:18px;
+  max-width:700px;
+}
+.section-title em{font-style:italic;color:var(--amber);}
+.section-body{font-size:17px;color:var(--text2);line-height:1.75;max-width:560px;margin-bottom:0;}
+
+/* ── FEATURES ── */
+.features-section{background:#fff;}
+.features-intro{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-bottom:80px;}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.feature-card{
+  background:var(--cream2);
+  border-radius:20px;padding:28px;
+  border:1px solid var(--cream3);
+  transition:all 0.25s;
+  position:relative;overflow:hidden;
+}
+.feature-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--amber),var(--amber2));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.3s;
+}
+.feature-card:hover{background:#fff;border-color:var(--amber);transform:translateY(-3px);box-shadow:0 12px 40px rgba(200,129,58,0.12);}
+.feature-card:hover::before{transform:scaleX(1);}
+.feature-icon{
+  width:48px;height:48px;border-radius:14px;
+  background:linear-gradient(135deg,var(--amber-light),#fde8cc);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;margin-bottom:16px;
+  border:1px solid var(--amber-light);
+}
+.feature-name{font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px;}
+.feature-desc{font-size:14px;color:var(--text2);line-height:1.65;}
+
+/* ── SCREENSHOTS ── */
+.screenshots-section{background:var(--cream);}
+.screenshot-row{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:center;
+  margin-bottom:100px;
+}
+.screenshot-row:last-child{margin-bottom:0;}
+.screenshot-row.reverse{direction:rtl;}
+.screenshot-row.reverse > *{direction:ltr;}
+.screenshot-text{}
+.screenshot-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+.tag{
+  padding:4px 12px;border-radius:20px;
+  font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;
+}
+.tag.amber{background:var(--amber-light);color:var(--brown);}
+.tag.dark{background:#1a1208;color:rgba(255,255,255,0.7);}
+.screenshot-title{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:var(--text);line-height:1.2;letter-spacing:-0.8px;margin-bottom:14px;}
+.screenshot-desc{font-size:15px;color:var(--text2);line-height:1.75;margin-bottom:24px;}
+.feature-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.feature-list li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:14px;color:var(--text2);line-height:1.5;
+}
+.feature-list li::before{
+  content:'✦';color:var(--amber);font-size:10px;
+  margin-top:3px;flex-shrink:0;
+}
+
+/* mock screens */
+.mock-frame{
+  background:var(--cream2);border-radius:20px;overflow:hidden;
+  border:1.5px solid var(--cream3);
+  box-shadow:0 20px 60px rgba(26,18,8,0.12);
+}
+.mock-topbar{background:#fff;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #efe9e0;}
+.mock-dots{display:flex;gap:5px;}
+.mock-dot{width:9px;height:9px;border-radius:50%;}
+.mock-title{font-size:10px;font-weight:600;color:#a0907e;}
+
+/* ORDER MOCK */
+.order-mock-body{display:grid;grid-template-columns:1fr 160px;gap:0;}
+.order-mock-left{padding:12px;background:#f5f0eb;}
+.om-cats{display:flex;gap:5px;margin-bottom:10px;flex-wrap:wrap;}
+.om-cat{padding:4px 10px;background:#fff;border:1px solid #efe9e0;border-radius:9px;font-size:9px;font-weight:600;color:#6b5c4e;}
+.om-cat.active{background:linear-gradient(135deg,#c8813a,#e8a255);border-color:transparent;color:#fff;}
+.om-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
+.om-card{background:#fff;border-radius:10px;padding:8px;border:1px solid #f0eae0;}
+.om-card.selected{border-color:#c8813a;}
+.order-mock-right{background:#fff;border-left:1px solid #efe9e0;padding:10px;}
+.om-header{font-size:10px;font-weight:800;margin-bottom:8px;color:#1a1a1a;display:flex;justify-content:space-between;}
+.om-badge{background:#fff5ec;border:1px solid #f0d4b0;border-radius:8px;padding:2px 7px;font-size:8px;font-weight:700;color:#c8813a;}
+.om-item{display:flex;gap:6px;padding:5px 0;border-bottom:1px solid #f7f2ec;align-items:center;}
+.om-dot{width:22px;height:22px;border-radius:6px;background:#f5f0eb;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;}
+.om-info{flex:1;}
+.om-iname{font-size:8px;font-weight:700;color:#1a1a1a;}
+.om-isub{font-size:7px;color:#a0907e;}
+.om-qty{display:flex;align-items:center;gap:3px;}
+.om-qbtn{width:14px;height:14px;border-radius:4px;background:#f5f0eb;display:flex;align-items:center;justify-content:center;font-size:9px;color:#6b5c4e;}
+.om-qval{font-size:8px;font-weight:700;}
+.om-price{font-size:8px;font-weight:700;color:#c8813a;}
+
+/* MODAL MOCK */
+.modal-mock-body{padding:12px;background:#f5f0eb;min-height:220px;display:flex;align-items:center;justify-content:center;}
+.modal-card{background:#fff;border-radius:16px;width:220px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.12);}
+.mc-head{padding:12px;border-bottom:1px solid #f0eae0;display:flex;gap:8px;align-items:center;}
+.mc-emoji{width:36px;height:36px;border-radius:10px;background:#f5f0eb;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.mc-cat{font-size:8px;font-weight:700;color:#c8813a;text-transform:uppercase;letter-spacing:0.08em;}
+.mc-name{font-size:12px;font-weight:800;color:#1a1a1a;margin-top:2px;}
+.mc-section{font-size:8px;font-weight:700;color:#a0907e;text-transform:uppercase;letter-spacing:0.08em;padding:8px 12px 5px;}
+.mc-sizes{padding:0 10px;display:flex;flex-direction:column;gap:4px;}
+.mc-size{display:flex;justify-content:space-between;align-items:center;padding:6px 8px;background:#f7f3ee;border-radius:8px;border:1px solid transparent;}
+.mc-size.sel{background:#fff5ec;border-color:#c8813a;}
+.mc-sz{font-size:9px;font-weight:600;color:#1a1a1a;}
+.mc-sp{font-size:9px;font-weight:700;color:#a0907e;}
+.mc-size.sel .mc-sp{color:#c8813a;}
+.mc-check{width:13px;height:13px;border-radius:50%;background:#c8813a;display:flex;align-items:center;justify-content:center;font-size:7px;color:#fff;}
+.mc-addons{margin:6px 10px 0;background:#f7f3ee;border-radius:10px;overflow:hidden;}
+.mc-addon{display:flex;align-items:center;justify-content:space-between;padding:6px 8px;border-bottom:1px solid rgba(0,0,0,0.04);}
+.mc-addon:last-child{border-bottom:none;}
+.mc-addon.on{background:#fff5ec;}
+.mc-ao-l{display:flex;align-items:center;gap:5px;}
+.mc-ao-toggle{width:13px;height:13px;border-radius:50%;background:#fff;border:1px solid #ddd4c8;font-size:7px;color:transparent;display:flex;align-items:center;justify-content:center;}
+.mc-addon.on .mc-ao-toggle{background:#c8813a;border-color:#c8813a;color:#fff;}
+.mc-aon{font-size:9px;font-weight:600;color:#1a1a1a;}
+.mc-aop{font-size:8px;font-weight:700;color:#a0907e;}
+.mc-addon.on .mc-aop{color:#c8813a;}
+.mc-footer{padding:8px 10px 10px;border-top:1px solid #f0eae0;display:flex;gap:6px;margin-top:6px;}
+.mc-cancel{padding:7px 10px;background:#f5f0eb;border-radius:8px;font-size:8px;font-weight:700;color:#a0907e;}
+.mc-add{flex:1;padding:7px;background:linear-gradient(135deg,#c8813a,#e8a255);border-radius:8px;font-size:8px;font-weight:800;color:#fff;text-align:center;}
+
+/* DASHBOARD MOCK */
+.dash-mock-body{padding:12px;background:#f5f0eb;}
+.dash-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:8px;}
+.ds-card{background:#fff;border-radius:10px;padding:8px;border:1px solid #f0eae0;}
+.ds-icon{font-size:14px;margin-bottom:4px;}
+.ds-label{font-size:7px;font-weight:600;color:#a0907e;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;}
+.ds-val{font-size:13px;font-weight:800;color:#1a1a1a;letter-spacing:-0.3px;}
+.ds-change{font-size:7px;font-weight:600;color:#2d9a5f;margin-top:1px;}
+.dash-row2{display:grid;grid-template-columns:1.5fr 1fr;gap:6px;}
+.dc-card{background:#fff;border-radius:10px;padding:8px;border:1px solid #f0eae0;}
+.dc-title{font-size:8px;font-weight:700;color:#1a1a1a;margin-bottom:6px;}
+.bar-row{display:flex;align-items:flex-end;gap:3px;height:50px;}
+.db{flex:1;border-radius:3px 3px 1px 1px;background:linear-gradient(180deg,#e8a255,#c8813a);}
+.db-label{font-size:6px;font-weight:600;color:#a0907e;text-align:center;margin-top:3px;}
+.db-col{display:flex;flex-direction:column;align-items:center;flex:1;}
+.top-list{display:flex;flex-direction:column;gap:5px;}
+.tl-item{display:flex;align-items:center;gap:6px;}
+.tl-em{width:18px;height:18px;border-radius:5px;background:#f5f0eb;display:flex;align-items:center;justify-content:center;font-size:9px;}
+.tl-name{font-size:8px;font-weight:700;color:#1a1a1a;flex:1;}
+.tl-bar-wrap{width:50px;height:4px;background:#f5f0eb;border-radius:2px;overflow:hidden;}
+.tl-bar{height:100%;background:linear-gradient(90deg,#c8813a,#e8a255);}
+.tl-n{font-size:8px;font-weight:700;color:#c8813a;}
+
+/* DARK MODE MOCK */
+.dark-mock{background:#111010;}
+.dark-topbar{background:#1c1a18;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #2e2b28;}
+.dark-logo{display:flex;align-items:center;gap:6px;}
+.dark-logomark{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#e8a255,#f0bc7a);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;}
+.dark-logotext{font-size:11px;font-weight:800;color:#f0e8de;}
+.dark-nav{display:flex;gap:3px;background:#242220;border-radius:7px;padding:2px;}
+.dark-navbtn{padding:3px 8px;border-radius:5px;font-size:8px;font-weight:600;color:#8a7a6a;}
+.dark-navbtn.active{background:#2e2b28;color:#e8a255;}
+.dark-status{background:#0e2a1a;border-radius:8px;padding:2px 6px;font-size:8px;font-weight:600;color:#4ade80;display:flex;align-items:center;gap:3px;}
+.dark-dot{width:4px;height:4px;border-radius:50%;background:#4ade80;}
+.dark-clock{font-size:9px;font-weight:600;color:#8a7a6a;}
+.dark-theme{width:20px;height:20px;border-radius:6px;background:#242220;display:flex;align-items:center;justify-content:center;font-size:10px;}
+.dark-body{display:grid;grid-template-columns:1fr 160px;}
+.dark-left{padding:10px;background:#111010;}
+.dark-search{background:#1c1a18;border-radius:8px;padding:6px 10px;display:flex;gap:6px;align-items:center;margin-bottom:8px;border:1px solid #2e2b28;}
+.dark-search-icon{font-size:10px;color:#5a4e42;}
+.dark-search-text{font-size:9px;color:#5a4e42;}
+.dark-cats{display:flex;gap:4px;margin-bottom:8px;}
+.dark-cat{padding:4px 8px;background:#1c1a18;border:1px solid #2e2b28;border-radius:8px;font-size:8px;font-weight:600;color:#8a7a6a;}
+.dark-cat.active{background:linear-gradient(135deg,#e8a255,#f0bc7a);border-color:transparent;color:#fff;}
+.dark-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;}
+.dark-card{background:#1c1a18;border-radius:9px;padding:7px;border:1px solid #2e2b28;}
+.dark-emoji{font-size:14px;margin-bottom:3px;}
+.dark-name{font-size:7px;font-weight:700;color:#f0e8de;margin-bottom:2px;line-height:1.3;}
+.dark-price{font-size:7px;font-weight:800;color:#e8a255;}
+.dark-right{background:#1c1a18;border-left:1px solid #2e2b28;padding:10px;}
+.dark-bills-title{font-size:10px;font-weight:800;color:#f0e8de;margin-bottom:8px;}
+.dark-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:80px;gap:5px;}
+.dark-empty-icon{font-size:22px;opacity:0.15;}
+.dark-empty-text{font-size:7px;font-weight:600;color:#5a4e42;text-transform:uppercase;letter-spacing:0.08em;}
+.dark-pay-label{font-size:7px;font-weight:700;color:#8a7a6a;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:5px;}
+.dark-pay-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:6px;}
+.dark-pay-btn{padding:5px 3px;background:#242220;border:1px solid #3a3733;border-radius:7px;font-size:7px;font-weight:600;color:#8a7a6a;text-align:center;}
+.dark-charge{padding:7px;background:linear-gradient(135deg,#e8a255,#f0bc7a);border-radius:8px;font-size:8px;font-weight:800;color:#fff;text-align:center;}
+
+/* ── TECH STACK ── */
+.tech-section{background:#fff;padding:80px 60px;}
+.tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:60px;}
+.tech-card{
+  background:var(--cream2);border-radius:18px;padding:24px;
+  border:1px solid var(--cream3);text-align:center;
+  transition:all 0.2s;
+}
+.tech-card:hover{background:#fff;border-color:var(--amber);box-shadow:0 8px 30px rgba(200,129,58,0.1);transform:translateY(-2px);}
+.tech-icon{font-size:32px;margin-bottom:12px;}
+.tech-name{font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;}
+.tech-desc{font-size:12px;color:var(--text3);line-height:1.6;}
+
+/* ── CTA ── */
+.cta-section{
+  background:linear-gradient(140deg,#1a1208 0%,#2d1f0e 50%,#3d2810 100%);
+  padding:120px 60px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(200,129,58,0.2),transparent 70%);
+}
+.cta-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(40px,5vw,64px);
+  font-weight:900;color:#fff;
+  letter-spacing:-1.5px;line-height:1.1;
+  margin-bottom:20px;
+  position:relative;z-index:1;
+}
+.cta-title em{font-style:italic;color:var(--amber2);}
+.cta-sub{font-size:18px;color:rgba(255,255,255,0.5);margin-bottom:44px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;position:relative;z-index:1;}
+.cta-actions{display:flex;align-items:center;justify-content:center;gap:14px;position:relative;z-index:1;}
+
+/* ── FOOTER ── */
+footer{background:#0e0b06;padding:32px 60px;display:flex;align-items:center;justify-content:space-between;}
+.footer-logo{display:flex;align-items:center;gap:8px;}
+.footer-logo-mark{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--amber),var(--amber2));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;}
+.footer-logo-text{font-size:14px;font-weight:800;color:rgba(255,255,255,0.6);}
+.footer-logo-text span{color:var(--amber2);}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.2);}
+.footer-built{font-size:12px;color:rgba(255,255,255,0.2);}
+.footer-built span{color:var(--amber2);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.fade-up{opacity:0;animation:fadeUp 0.7s ease forwards;}
+.fade-up:nth-child(1){animation-delay:0.1s;}
+.fade-up:nth-child(2){animation-delay:0.2s;}
+.fade-up:nth-child(3){animation-delay:0.3s;}
+.fade-up:nth-child(4){animation-delay:0.4s;}
+.fade-up:nth-child(5){animation-delay:0.5s;}
+.fade-up:nth-child(6){animation-delay:0.6s;}
+
+/* ── POS APP OVERLAY ── */
+#pos-app-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #f5f0eb;
+  display: none;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+#pos-app-overlay.visible {
+  display: flex;
+  opacity: 1;
+}
+#pos-back-btn {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 10001;
+  background: rgba(255,255,255,0.9);
+  border: 1.5px solid #efe9e0;
+  border-radius: 10px;
+  padding: 7px 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #6b5c4e;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(8px);
+  transition: all 0.15s;
+}
+#pos-back-btn:hover { background: #fff; color: #c8813a; border-color: #c8813a; }
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grain"></div>
+  <div class="hero-circles"><span></span><span></span></div>
+
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-logo-mark">E</div>
+      <div class="nav-logo-text">Eng<span>kape</span> POS</div>
+    </div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#tech">Built with</a>
+    </div>
+    
+  </nav>
+
+  <div class="hero-body">
+    <div class="hero-badge"><span></span>Point of Sale System</div>
+    <h1 class="hero-title">The POS built for<br><em>Engkape</em></h1>
+    <p class="hero-subtitle">A full-featured, iOS-inspired point of sale system — warm light mode, deep dark mode, real-time billing, and a live sales dashboard.</p>
+    <div class="hero-actions">
+      <a href="#features" class="btn-secondary">Explore features</a>
+    </div>
+
+    <!-- MINI BROWSER MOCKUP -->
+    <div class="hero-screen">
+      <div class="screen-bar">
+        <div class="screen-dot" style="background:#ff5f57;"></div>
+        <div class="screen-dot" style="background:#febc2e;"></div>
+        <div class="screen-dot" style="background:#28c840;"></div>
+        <span style="flex:1;text-align:center;font-size:10px;color:rgba(255,255,255,0.3);font-family:'Plus Jakarta Sans',sans-serif;">engkape-pos.html</span>
+      </div>
+      <div class="screen-ui">
+        <div class="screen-topbar">
+          <div class="s-logo">
+            <div class="s-logomark">E</div>
+            <div class="s-logotext">Eng<span>kape</span></div>
+          </div>
+          <div class="s-nav">
+            <div class="s-navbtn active">🛒 Order</div>
+            <div class="s-navbtn">📊 Dashboard</div>
+          </div>
+          <div class="s-right">
+            <div class="s-status">● Online</div>
+            <div class="s-theme">🌙</div>
+            <div class="s-clock">04:26 PM</div>
+          </div>
+        </div>
+        <div class="screen-body">
+          <div class="screen-left">
+            <div class="screen-search">
+              <div class="screen-search-icon">🔍</div>
+              <div class="screen-search-text">Search menu...</div>
+            </div>
+            <div class="screen-cats">
+              <div class="s-cat active">🍽️ All</div>
+              <div class="s-cat">☕ Coffee</div>
+              <div class="s-cat">🧋 Non-Coffee</div>
+              <div class="s-cat">🥤 Blended</div>
+              <div class="s-cat">🍟 Starters</div>
+            </div>
+            <div class="screen-grid">
+              <div class="s-card"><div class="s-emoji">☕</div><div class="s-name">Americano</div><div class="s-price">from ₱90</div></div>
+              <div class="s-card"><div class="s-emoji">☕</div><div class="s-name">Cafe Latte</div><div class="s-price">from ₱120</div></div>
+              <div class="s-card" style="border-color:#c8813a;"><div class="s-emoji">🍪</div><div class="s-name">Biscoff Latte</div><div class="s-price">from ₱150</div></div>
+              <div class="s-card"><div class="s-emoji">⭐</div><div class="s-name">Engkape Sig.</div><div class="s-price">from ₱140</div></div>
+              <div class="s-card"><div class="s-emoji">🍫</div><div class="s-name">Nutella Blend</div><div class="s-price">₱180</div></div>
+              <div class="s-card"><div class="s-emoji">🍟</div><div class="s-name">Classic Fries</div><div class="s-price">₱70</div></div>
+              <div class="s-card"><div class="s-emoji">🧇</div><div class="s-name">Belgian Waffle</div><div class="s-price">₱99</div></div>
+              <div class="s-card"><div class="s-emoji">🍚</div><div class="s-name">Beef Tapa Rice</div><div class="s-price">₱189</div></div>
+              <div class="s-card"><div class="s-emoji">🍜</div><div class="s-name">Classic Buldak</div><div class="s-price">₱139</div></div>
+              <div class="s-card"><div class="s-emoji">🥪</div><div class="s-name">Grilled Cheese</div><div class="s-price">₱150</div></div>
+            </div>
+          </div>
+          <div class="screen-right">
+            <div class="s-bills-title">Bills <span style="background:#fff5ec;border:1px solid #f0d4b0;border-radius:8px;padding:1px 6px;font-size:8px;font-weight:700;color:#c8813a;margin-left:4px;">#001</span></div>
+            <div class="s-item"><div class="s-item-emoji">☕</div><div class="s-item-name">Cafe Latte · 16oz</div><div class="s-item-price">₱120</div></div>
+            <div class="s-item"><div class="s-item-emoji">🍟</div><div class="s-item-name">Classic Fries</div><div class="s-item-price">₱70</div></div>
+            <div class="s-item"><div class="s-item-emoji">⭐</div><div class="s-item-name">Engkape Sig.</div><div class="s-item-price">₱150</div></div>
+            <div style="margin-top:8px;border-top:1px dashed #ede5d8;padding-top:6px;">
+              <div class="s-total-row"><span>Subtotal</span><span>₱340</span></div>
+              <div class="s-total-row"><span>Tax (12%)</span><span>₱40.80</span></div>
+              <div class="s-grand"><span>Total</span><span>₱380.80</span></div>
+            </div>
+            <div class="s-pay-grid">
+              <div class="s-pay-btn">💵 Cash</div>
+              <div class="s-pay-btn" style="background:#fff5ec;border-color:#c8813a;color:#c8813a;">📱 GCash</div>
+              <div class="s-pay-btn">💳 Card</div>
+              <div class="s-pay-btn">💜 Maya</div>
+            </div>
+            <div class="s-charge">Charge ₱380.80 · GCash</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stat-item"><div class="stat-num">44</div><div class="stat-label">Menu Items</div></div>
+  <div class="stat-item"><div class="stat-num">11</div><div class="stat-label">Categories</div></div>
+  <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Payment Methods</div></div>
+  <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">Themes</div></div>
+</div>
+
+<!-- FEATURES -->
+<section class="features-section section" id="features">
+  <div class="features-intro">
+    <div>
+      <div class="section-label">Features</div>
+      <h2 class="section-title">Everything a café needs, <em>nothing it doesn't</em></h2>
+    </div>
+    <p class="section-body">Built specifically for Engkape's Menu-Talaan. Every item, size, add-on, and payment method from the real menu — all in a fast, beautiful interface that works the first time you open it.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card fade-up">
+      <div class="feature-icon">🛒</div>
+      <div class="feature-name">Smart ordering</div>
+      <div class="feature-desc">Tap any item to open a size and add-on picker. Sizes auto-match drink or food type. Quantities update instantly. Add-ons attach to each line item individually.</div>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon">☕</div>
+      <div class="feature-name">Full menu catalog</div>
+      <div class="feature-desc">All 44 items across 11 categories — Coffee, Non-Coffee, Blended, Cheese Cloud, Starters, Sandwiches, Waffles, Rice Meals, and Buldak.</div>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon">🌙</div>
+      <div class="feature-name">Light & dark mode</div>
+      <div class="feature-desc">One-click toggle between warm cream light mode and deep dark mode. Preference saved to localStorage so it persists across sessions.</div>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon">📊</div>
+      <div class="feature-name">Sales dashboard</div>
+      <div class="feature-desc">Daily revenue, order counts, monthly trend charts, top-selling items, and payment method breakdown — all at a glance.</div>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon">💳</div>
+      <div class="feature-name">4 payment methods</div>
+      <div class="feature-desc">Cash, Card, GCash, and Maya. Select before charging. Success overlay confirms the transaction with amount and method.</div>
+    </div>
+    <div class="feature-card fade-up">
+      <div class="feature-icon">✨</div>
+      <div class="feature-name">iOS-style UI</div>
+      <div class="feature-desc">Rounded cards, spring pop-in modals, smooth 350ms theme transitions, amber gradient accents, and a live clock in the topbar.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENSHOTS -->
+<section class="screenshots-section section" id="screenshots">
+  <div style="text-align:center;margin-bottom:80px;">
+    <div class="section-label" style="justify-content:center;">Screenshots</div>
+    <h2 class="section-title" style="margin:0 auto;text-align:center;">See it in <em>action</em></h2>
+  </div>
+
+  <!-- ROW 1: Order panel -->
+  <div class="screenshot-row">
+    <div class="screenshot-text">
+      <div class="screenshot-tags"><span class="tag amber">Order Panel</span><span class="tag amber">Light Mode</span></div>
+      <h3 class="screenshot-title">Build orders in seconds</h3>
+      <p class="screenshot-desc">Category filters, live search, and a product grid that shows every item clearly. The Bills panel on the right updates in real time as you add items.</p>
+      <ul class="feature-list">
+        <li>Category tabs with emoji icons for fast navigation</li>
+        <li>Search bar filters the grid live as you type</li>
+        <li>Item count, subtotal, VAT, and total always visible</li>
+        <li>Qty controls on each line item — tap + or − to adjust</li>
+      </ul>
+    </div>
+    <div class="mock-frame">
+      <div class="mock-topbar">
+        <div class="mock-dots">
+          <div class="mock-dot" style="background:#ff5f57;"></div>
+          <div class="mock-dot" style="background:#febc2e;"></div>
+          <div class="mock-dot" style="background:#28c840;"></div>
+        </div>
+        <div class="mock-title">Order panel — light mode</div>
+      </div>
+      <div class="order-mock-body">
+        <div class="order-mock-left">
+          <div class="om-cats">
+            <div class="om-cat active">All</div>
+            <div class="om-cat">☕ Coffee</div>
+            <div class="om-cat">🧋 Non-Coffee</div>
+            <div class="om-cat">🍟 Starters</div>
+          </div>
+          <div class="om-grid">
+            <div class="om-card"><div class="s-emoji" style="font-size:14px;">☕</div><div class="s-name" style="font-size:8px;">Americano</div><div class="s-price" style="font-size:8px;">from ₱90</div></div>
+            <div class="om-card selected"><div class="s-emoji" style="font-size:14px;">⭐</div><div class="s-name" style="font-size:8px;">Engkape Sig.</div><div class="s-price" style="font-size:8px;">from ₱140</div></div>
+            <div class="om-card"><div class="s-emoji" style="font-size:14px;">🍫</div><div class="s-name" style="font-size:8px;">Signature Choc.</div><div class="s-price" style="font-size:8px;">from ₱120</div></div>
+            <div class="om-card"><div class="s-emoji" style="font-size:14px;">🍟</div><div class="s-name" style="font-size:8px;">Classic Fries</div><div class="s-price" style="font-size:8px;">₱70</div></div>
+            <div class="om-card"><div class="s-emoji" style="font-size:14px;">🧇</div><div class="s-name" style="font-size:8px;">Belgian Waffle</div><div class="s-price" style="font-size:8px;">₱99</div></div>
+            <div class="om-card"><div class="s-emoji" style="font-size:14px;">🍚</div><div class="s-name" style="font-size:8px;">Beef Tapa Rice</div><div class="s-price" style="font-size:8px;">₱189</div></div>
+            <div class="om-card"><div class="s-emoji" style="font-size:14px;">🥪</div><div class="s-name" style="font-size:8px;">Grilled Cheese</div><div class="s-price" style="font-size:8px;">₱150</div></div>
+            <div class="om-card"><div class="s-emoji" style="font-size:14px;">🍜</div><div class="s-name" style="font-size:8px;">Classic Buldak</div><div class="s-price" style="font-size:8px;">₱139</div></div>
+          </div>
+        </div>
+        <div class="order-mock-right">
+          <div class="om-header">Bills <div class="om-badge">#002</div></div>
+          <div class="om-item"><div class="om-dot">⭐</div><div class="om-info"><div class="om-iname">Engkape Sig. · 16oz</div><div class="om-isub">₱140 each</div></div><div class="om-qty"><div class="om-qbtn">−</div><div class="om-qval">2</div><div class="om-qbtn">+</div></div><div class="om-price">₱280</div></div>
+          <div class="om-item"><div class="om-dot">🍟</div><div class="om-info"><div class="om-iname">Classic Fries</div><div class="om-isub">₱70 each</div></div><div class="om-qty"><div class="om-qbtn">−</div><div class="om-qval">1</div><div class="om-qbtn">+</div></div><div class="om-price">₱70</div></div>
+          <div class="om-item"><div class="om-dot">🧇</div><div class="om-info"><div class="om-iname">Belgian Waffle</div><div class="om-isub">₱99 each</div></div><div class="om-qty"><div class="om-qbtn">−</div><div class="om-qval">1</div><div class="om-qbtn">+</div></div><div class="om-price">₱99</div></div>
+          <div style="margin-top:8px;border-top:1px dashed #ede5d8;padding-top:6px;">
+            <div class="s-total-row"><span>Subtotal</span><span>₱449</span></div>
+            <div class="s-total-row"><span>Tax 12%</span><span>₱53.88</span></div>
+            <div class="s-grand"><span>Total</span><span>₱502.88</span></div>
+          </div>
+          <div class="s-pay-grid" style="margin-top:8px;">
+            <div class="s-pay-btn">💵 Cash</div>
+            <div class="s-pay-btn">💳 Card</div>
+            <div class="s-pay-btn" style="background:#fff5ec;border-color:#c8813a;color:#c8813a;">📱 GCash</div>
+            <div class="s-pay-btn">💜 Maya</div>
+          </div>
+          <div class="s-charge" style="margin-top:4px;">Charge ₱502.88</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 2: Item modal -->
+  <div class="screenshot-row reverse">
+    <div class="screenshot-text">
+      <div class="screenshot-tags"><span class="tag amber">Item Modal</span><span class="tag amber">iOS Style</span></div>
+      <h3 class="screenshot-title">Sizes + add-ons in one popup</h3>
+      <p class="screenshot-desc">Tapping any product opens a centered iOS-style modal with a spring animation. Size selector and contextual add-ons are right there together — no extra steps.</p>
+      <ul class="feature-list">
+        <li>Drink add-ons only shown for drink items (Espresso Shot, Oat Milk, Syrup, Sea Salt Cream…)</li>
+        <li>Food add-ons only shown for food items (Extra Egg, Extra Cheese, Hotdog, Cheese Sauce…)</li>
+        <li>Circular toggle indicators fill amber when selected</li>
+        <li>Add button shows running total as you pick options</li>
+      </ul>
+    </div>
+    <div class="mock-frame">
+      <div class="mock-topbar">
+        <div class="mock-dots">
+          <div class="mock-dot" style="background:#ff5f57;"></div>
+          <div class="mock-dot" style="background:#febc2e;"></div>
+          <div class="mock-dot" style="background:#28c840;"></div>
+        </div>
+        <div class="mock-title">Item modal — size + add-ons</div>
+      </div>
+      <div class="modal-mock-body">
+        <div class="modal-card">
+          <div class="mc-head">
+            <div class="mc-emoji">☕</div>
+            <div><div class="mc-cat">Coffee</div><div class="mc-name">Cafe Latte</div></div>
+          </div>
+          <div class="mc-section">Choose Size</div>
+          <div class="mc-sizes">
+            <div class="mc-size"><span class="mc-sz">12oz Hot</span><div class="mc-sp">₱130</div></div>
+            <div class="mc-size sel"><span class="mc-sz" style="color:#c8813a;">16oz Iced</span><div style="display:flex;align-items:center;gap:5px;"><span class="mc-sp">₱120</span><div class="mc-check">✓</div></div></div>
+            <div class="mc-size"><span class="mc-sz">22oz Iced</span><div class="mc-sp">₱150</div></div>
+          </div>
+          <div class="mc-section">Add-Ons <span style="color:#c0b0a0;font-size:7px;">(optional)</span></div>
+          <div class="mc-addons">
+            <div class="mc-addon on"><div class="mc-ao-l"><div class="mc-ao-toggle">✓</div><div class="mc-aon">Espresso Shot</div></div><div class="mc-aop">+₱50</div></div>
+            <div class="mc-addon"><div class="mc-ao-l"><div class="mc-ao-toggle"></div><div class="mc-aon">Oat Milk</div></div><div class="mc-aop">+₱30</div></div>
+            <div class="mc-addon on"><div class="mc-ao-l"><div class="mc-ao-toggle">✓</div><div class="mc-aon">Whipped Cream</div></div><div class="mc-aop">+₱50</div></div>
+            <div class="mc-addon"><div class="mc-ao-l"><div class="mc-ao-toggle"></div><div class="mc-aon">Syrup (10ml)</div></div><div class="mc-aop">+₱15</div></div>
+          </div>
+          <div class="mc-footer">
+            <div class="mc-cancel">Cancel</div>
+            <div class="mc-add">Add to Order — ₱220</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 3: Dark mode -->
+  <div class="screenshot-row" id="dashboard">
+    <div class="screenshot-text">
+      <div class="screenshot-tags"><span class="tag dark">Dark Mode</span><span class="tag amber">Theme Toggle</span></div>
+      <h3 class="screenshot-title">Dark mode that actually looks good</h3>
+      <p class="screenshot-desc">Deep warm dark tones — not just inverted light mode. Every surface, border, and text color has been individually tuned for night use. Toggle persists via localStorage.</p>
+      <ul class="feature-list">
+        <li>Deep #111010 base with layered warm-dark surfaces</li>
+        <li>Amber accents stay vibrant on dark backgrounds</li>
+        <li>All transitions animate smoothly over 350ms</li>
+        <li>Green "Online" pill adapts with a dark green background</li>
+      </ul>
+    </div>
+    <div class="mock-frame dark-mock">
+      <div class="dark-topbar">
+        <div class="dark-logo"><div class="dark-logomark">E</div><div class="dark-logotext">Eng<span style="color:#e8a255;">kape</span></div></div>
+        <div class="dark-nav"><div class="dark-navbtn active">🛒 Order</div><div class="dark-navbtn">📊 Dashboard</div></div>
+        <div style="display:flex;align-items:center;gap:6px;">
+          <div class="dark-status"><div class="dark-dot"></div>Online</div>
+          <div class="dark-theme">☀️</div>
+          <div class="dark-clock">04:26 PM</div>
+        </div>
+      </div>
+      <div class="dark-body">
+        <div class="dark-left">
+          <div class="dark-search"><div class="dark-search-icon">🔍</div><div class="dark-search-text">Search menu...</div></div>
+          <div class="dark-cats">
+            <div class="dark-cat active">🍽️ All</div>
+            <div class="dark-cat">☕ Coffee</div>
+            <div class="dark-cat">🍟 Starters</div>
+            <div class="dark-cat">🍜 Buldak</div>
+          </div>
+          <div class="dark-grid">
+            <div class="dark-card"><div class="dark-emoji">☕</div><div class="dark-name">Americano</div><div class="dark-price">from ₱90</div></div>
+            <div class="dark-card" style="border-color:#4a3018;"><div class="dark-emoji">⭐</div><div class="dark-name">Engkape Sig.</div><div class="dark-price">from ₱140</div></div>
+            <div class="dark-card"><div class="dark-emoji">🍫</div><div class="dark-name">Signature Choc.</div><div class="dark-price">from ₱120</div></div>
+            <div class="dark-card"><div class="dark-emoji">🍟</div><div class="dark-name">Classic Fries</div><div class="dark-price">₱70</div></div>
+            <div class="dark-card"><div class="dark-emoji">🧇</div><div class="dark-name">Belgian Waffle</div><div class="dark-price">₱99</div></div>
+            <div class="dark-card"><div class="dark-emoji">🍜</div><div class="dark-name">Buldak</div><div class="dark-price">₱139</div></div>
+            <div class="dark-card"><div class="dark-emoji">🥪</div><div class="dark-name">Grilled Cheese</div><div class="dark-price">₱150</div></div>
+            <div class="dark-card"><div class="dark-emoji">🍚</div><div class="dark-name">Beef Tapa Rice</div><div class="dark-price">₱189</div></div>
+          </div>
+        </div>
+        <div class="dark-right">
+          <div class="dark-bills-title">Bills</div>
+          <div class="dark-empty"><div class="dark-empty-icon">🛒</div><div class="dark-empty-text">No items yet</div></div>
+          <div class="dark-pay-label" style="margin-top:8px;">Payment Method</div>
+          <div class="dark-pay-grid">
+            <div class="dark-pay-btn">💵 Cash</div>
+            <div class="dark-pay-btn">💳 Card</div>
+            <div class="dark-pay-btn">📱 GCash</div>
+            <div class="dark-pay-btn">💜 Maya</div>
+          </div>
+          <div class="dark-charge">Select Method</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 4: Dashboard -->
+  <div class="screenshot-row reverse">
+    <div class="screenshot-text">
+      <div class="screenshot-tags"><span class="tag amber">Dashboard</span><span class="tag amber">Analytics</span></div>
+      <h3 class="screenshot-title">Sales at a glance</h3>
+      <p class="screenshot-desc">Switch to the Dashboard tab for a full overview of daily and monthly performance. Everything you need to track the café's sales health.</p>
+      <ul class="feature-list">
+        <li>4 stat cards — today's revenue, order count, monthly total, average order value</li>
+        <li>Daily bar chart for the current week with hover tooltips</li>
+        <li>6-month trend chart with the current month highlighted</li>
+        <li>Top 5 items by units sold with visual progress bars</li>
+        <li>Payment method split across Cash, GCash, Maya, and Card</li>
+      </ul>
+    </div>
+    <div class="mock-frame">
+      <div class="mock-topbar">
+        <div class="mock-dots">
+          <div class="mock-dot" style="background:#ff5f57;"></div>
+          <div class="mock-dot" style="background:#febc2e;"></div>
+          <div class="mock-dot" style="background:#28c840;"></div>
+        </div>
+        <div class="mock-title">Dashboard — sales overview</div>
+      </div>
+      <div class="dash-mock-body">
+        <div class="dash-stats">
+          <div class="ds-card"><div class="ds-icon">💰</div><div class="ds-label">Today</div><div class="ds-val">₱7.2k</div><div class="ds-change">↑ 12%</div></div>
+          <div class="ds-card"><div class="ds-icon">📦</div><div class="ds-label">Orders</div><div class="ds-val">41</div><div class="ds-change">↑ 8%</div></div>
+          <div class="ds-card"><div class="ds-icon">📅</div><div class="ds-label">Monthly</div><div class="ds-val">₱68k</div><div class="ds-change">↑ 5.6%</div></div>
+          <div class="ds-card"><div class="ds-icon">🧾</div><div class="ds-label">Avg. Order</div><div class="ds-val">₱187</div><div class="ds-change">↑ 3.2%</div></div>
+        </div>
+        <div class="dash-row2">
+          <div class="dc-card">
+            <div class="dc-title">Daily Sales — This Week</div>
+            <div class="bar-row">
+              <div class="db-col"><div class="db" style="height:30px;"></div><div class="db-label">Mon</div></div>
+              <div class="db-col"><div class="db" style="height:42px;"></div><div class="db-label">Tue</div></div>
+              <div class="db-col"><div class="db" style="height:28px;"></div><div class="db-label">Wed</div></div>
+              <div class="db-col"><div class="db" style="height:48px;"></div><div class="db-label">Thu</div></div>
+              <div class="db-col"><div class="db" style="height:58px;"></div><div class="db-label">Fri</div></div>
+              <div class="db-col"><div class="db" style="height:68px;"></div><div class="db-label">Sat</div></div>
+              <div class="db-col"><div class="db" style="height:52px;opacity:0.55;"></div><div class="db-label">Sun</div></div>
+            </div>
+          </div>
+          <div class="dc-card">
+            <div class="dc-title">Top Items Today</div>
+            <div class="top-list">
+              <div class="tl-item"><div class="tl-em">⭐</div><div class="tl-name">Engkape Sig.</div><div class="tl-bar-wrap"><div class="tl-bar" style="width:100%;"></div></div><div class="tl-n">28</div></div>
+              <div class="tl-item"><div class="tl-em">🍳</div><div class="tl-name">Spam Egg Sup.</div><div class="tl-bar-wrap"><div class="tl-bar" style="width:79%;"></div></div><div class="tl-n">22</div></div>
+              <div class="tl-item"><div class="tl-em">☕</div><div class="tl-name">Cafe Latte</div><div class="tl-bar-wrap"><div class="tl-bar" style="width:68%;"></div></div><div class="tl-n">19</div></div>
+              <div class="tl-item"><div class="tl-em">🍚</div><div class="tl-name">Beef Tapa Rice</div><div class="tl-bar-wrap"><div class="tl-bar" style="width:54%;"></div></div><div class="tl-n">15</div></div>
+              <div class="tl-item"><div class="tl-em">🍵</div><div class="tl-name">Matcha Cloud</div><div class="tl-bar-wrap"><div class="tl-bar" style="width:43%;"></div></div><div class="tl-n">12</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section class="tech-section" id="tech">
+  <div style="max-width:600px;">
+    <div class="section-label">Built with</div>
+    <h2 class="section-title">Pure HTML — <em>no dependencies</em></h2>
+    <p class="section-body" style="margin-bottom:0;">One self-contained HTML file. No frameworks, no build tools, no npm. Open it in any browser and it works.</p>
+  </div>
+  <div class="tech-grid">
+    <div class="tech-card">
+      <div class="tech-icon">📄</div>
+      <div class="tech-name">Plain HTML</div>
+      <div class="tech-desc">Single .html file. No bundler, no build step. Drop it anywhere and open it.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-icon">🎨</div>
+      <div class="tech-name">CSS Variables</div>
+      <div class="tech-desc">Full light/dark theming via CSS custom properties. Smooth transitions across every element.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-icon">⚡</div>
+      <div class="tech-name">Vanilla JS</div>
+      <div class="tech-desc">No React, no Vue. DOM manipulation and state managed with clean vanilla JavaScript.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-icon">🔤</div>
+      <div class="tech-name">Plus Jakarta Sans</div>
+      <div class="tech-desc">Google Fonts — loaded once. Playfair Display for editorial headings, Jakarta for UI.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-title">Ready to take<br>your first <em>order?</em></h2>
+  <p class="cta-sub">Open the POS and start ringing up. It's all there — every item from the Menu-Talaan, ready to go.</p>
+  <div class="cta-actions">
+    <button onclick="openPOS()" class="btn-primary" style="font-size:16px;padding:16px 32px;border:none;cursor:pointer;">Open Engkape POS →</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <div class="footer-logo-mark">E</div>
+    <div class="footer-logo-text">Eng<span>kape</span> POS</div>
+  </div>
+  <div class="footer-copy">Menu-Talaan Point of Sale System</div>
+  <div class="footer-built">Built with <span>Claude</span> — 2025</div>
+</footer>
+
+
+<!-- POS APP OVERLAY -->
+<style id="pos-app-styles" disabled>
+
+/* ── CSS VARIABLES ── */
+:root{
+  --bg:#f5f0eb; --surface:#fff; --surface2:#f5f0eb; --surface3:#f0eae0;
+  --border:#efe9e0; --border2:#f0eae0; --border3:#ede5d8;
+  --text:#1a1a1a; --text2:#6b5c4e; --text3:#a0907e; --text4:#c0b0a0;
+  --accent:#c8813a; --accent2:#e8a255;
+  --accent-bg:#fff5ec; --accent-border:#f0d4b0;
+  --nav-bg:#f5f0eb; --nav-active:#fff;
+  --item-row:#f7f2ec;
+  --size-bg:#f7f3ee; --addon-bg:#f7f3ee;
+  --split-bg:#f5f0eb;
+  --trend-inactive:#f0eae0;
+  --topbar-shadow:0 1px 0 #efe9e0;
+  --card-shadow:none;
+  --modal-bg:rgba(30,20,10,0.45);
+  --theme-icon:🌙;
+}
+.dark{
+  --bg:#111010; --surface:#1c1a18; --surface2:#242220; --surface3:#2e2b28;
+  --border:#2e2b28; --border2:#363330; --border3:#3a3733;
+  --text:#f0e8de; --text2:#c8b89e; --text3:#8a7a6a; --text4:#5a4e42;
+  --accent:#e8a255; --accent2:#f0bc7a;
+  --accent-bg:#2a1e0e; --accent-border:#4a3018;
+  --nav-bg:#242220; --nav-active:#2e2b28;
+  --item-row:#201e1c;
+  --size-bg:#242220; --addon-bg:#242220;
+  --split-bg:#242220;
+  --trend-inactive:#2e2b28;
+  --topbar-shadow:0 1px 0 #2e2b28;
+  --card-shadow:0 2px 12px rgba(0,0,0,0.3);
+  --modal-bg:rgba(0,0,0,0.65);
+  --theme-icon:☀️;
+}
+
+/* ── GLOBAL TRANSITION ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+#pos-app-overlay{height:100vh;overflow:hidden;}
+#pos-app-overlay{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--bg);color:var(--text);
+  display:flex;flex-direction:column;height:100vh;
+  transition:background 0.35s ease,color 0.35s ease;
+}
+/* apply transition to all themed elements */
+.topbar,.menu-panel,.order-panel,.product-card,.cat-btn,.search-bar,
+.order-item-wrap,.billing-section,.pay-section,.pay-btn,.charge-btn,
+.dash-page,.stat-card,.dash-card,.pay-split-item,.modal-overlay,
+.item-modal,.modal-head,.modal-footer,.size-opt,.addon-list-wrap,
+.addon-row,.success-card,.order-num-badge,.addon-chip-tag,.qty-btn,
+.order-item-emoji,.product-emoji-wrap,.top-item-emoji,.trend-bar,
+.top-item,.bar-tooltip,.nav-btn,.topbar-nav{
+  transition:background 0.35s ease,border-color 0.35s ease,color 0.35s ease,box-shadow 0.35s ease;
+}
+
+/* TOPBAR */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:58px;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0;z-index:10;box-shadow:var(--topbar-shadow);}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-mark{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff;box-shadow:0 2px 8px rgba(200,129,58,0.35);}
+.logo-text{font-size:16px;font-weight:800;color:var(--text);}
+.logo-text span{color:var(--accent);}
+.topbar-nav{display:flex;align-items:center;gap:4px;background:var(--nav-bg);border-radius:12px;padding:4px;}
+.nav-btn{display:flex;align-items:center;gap:6px;padding:7px 14px;border:none;background:transparent;border-radius:9px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;color:var(--text3);cursor:pointer;}
+.nav-btn:hover{color:var(--text2);}
+.nav-btn.active{background:var(--nav-active);color:var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.1);}
+.nav-btn .nav-icon{font-size:15px;}
+.topbar-right{display:flex;align-items:center;gap:12px;}
+.status-pill{display:flex;align-items:center;gap:5px;background:#edfaf2;border-radius:20px;padding:5px 10px;font-size:11px;font-weight:600;color:#2d9a5f;}
+.dark .status-pill{background:#0e2a1a;color:#4ade80;}
+.status-dot{width:6px;height:6px;border-radius:50%;background:#2d9a5f;box-shadow:0 0 0 2px rgba(45,154,95,0.25);}
+.clock{font-size:13px;font-weight:600;color:var(--text2);}
+
+/* THEME TOGGLE */
+.theme-btn{
+  width:34px;height:34px;border-radius:10px;
+  background:var(--surface2);border:1.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;cursor:pointer;
+  transition:all 0.2s;
+}
+.theme-btn:hover{background:var(--surface3);transform:scale(1.05);}
+.theme-btn:active{transform:scale(0.95);}
+
+/* PAGES */
+.page{display:none;flex:1;overflow:hidden;}
+.page.active{display:flex;}
+
+/* POS */
+.main{display:grid;grid-template-columns:1fr 340px;width:100%;overflow:hidden;}
+.menu-panel{display:flex;flex-direction:column;background:var(--bg);overflow:hidden;padding:18px 18px 0;gap:14px;}
+.search-bar{display:flex;align-items:center;gap:10px;background:var(--surface);border-radius:14px;padding:10px 16px;border:1.5px solid var(--border);flex-shrink:0;}
+.search-bar:focus-within{border-color:var(--accent);}
+.search-icon{font-size:16px;color:var(--text4);}
+.search-bar input{border:none;outline:none;flex:1;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:var(--text);background:transparent;}
+.search-bar input::placeholder{color:var(--text4);}
+.cat-section-label{font-size:12px;font-weight:700;color:var(--text2);letter-spacing:0.02em;flex-shrink:0;}
+.cat-scroll{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;flex-shrink:0;}
+.cat-scroll::-webkit-scrollbar{height:0;}
+.cat-btn{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0;background:var(--surface);border:1.5px solid var(--border);border-radius:16px;padding:10px 12px;cursor:pointer;min-width:68px;}
+.cat-btn:hover{border-color:var(--accent);}
+.cat-btn.active{background:linear-gradient(135deg,var(--accent),var(--accent2));border-color:transparent;box-shadow:0 4px 12px rgba(200,129,58,0.3);}
+.cat-icon{font-size:20px;line-height:1;}
+.cat-label{font-size:10px;font-weight:600;color:var(--text2);white-space:nowrap;}
+.cat-btn.active .cat-label{color:#fff;}
+.grid-header{display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.grid-title{font-size:14px;font-weight:700;color:var(--text);}
+.grid-count{font-size:12px;color:var(--text3);font-weight:500;}
+.products-grid{flex:1;overflow-y:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px;padding:4px 4px 18px;align-content:start;}
+.products-grid::-webkit-scrollbar{width:4px;}
+.products-grid::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
+.product-card{background:var(--surface);border-radius:18px;padding:14px 12px 44px;cursor:pointer;border:1.5px solid var(--border2);display:flex;flex-direction:column;gap:6px;position:relative;box-shadow:var(--card-shadow);}
+.product-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,129,58,0.18);}
+.product-card:active{transform:translateY(0);}
+.product-emoji-wrap{width:46px;height:46px;border-radius:12px;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:2px;flex-shrink:0;}
+.product-cat{font-size:9px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:0.07em;}
+.product-name{font-size:12px;font-weight:700;color:var(--text);line-height:1.3;}
+.product-price{font-size:13px;font-weight:800;color:var(--accent);position:absolute;bottom:13px;left:12px;}
+.product-add-icon{position:absolute;bottom:10px;right:10px;width:26px;height:26px;border-radius:8px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;opacity:0;transform:scale(0.8);transition:opacity 0.15s,transform 0.15s;}
+.product-card:hover .product-add-icon{opacity:1;transform:scale(1);}
+
+/* ORDER PANEL */
+.order-panel{background:var(--surface);border-left:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;}
+.order-header{padding:16px 18px 13px;border-bottom:1px solid var(--border2);flex-shrink:0;display:flex;align-items:center;justify-content:space-between;}
+.order-title{font-size:16px;font-weight:800;color:var(--text);}
+.order-num-badge{background:var(--accent-bg);border:1.5px solid var(--accent-border);border-radius:20px;padding:3px 10px;font-size:12px;font-weight:700;color:var(--accent);}
+.order-items{flex:1;overflow-y:auto;padding:6px 0;}
+.order-items::-webkit-scrollbar{width:3px;}
+.order-items::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
+.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:10px;}
+.empty-icon{font-size:40px;opacity:0.2;}
+.empty-text{font-size:11px;font-weight:700;color:var(--text4);text-transform:uppercase;letter-spacing:0.08em;}
+.order-item-wrap{padding:9px 18px;border-bottom:1px solid var(--item-row);}
+.order-item{display:flex;align-items:center;gap:9px;}
+.order-item-emoji{width:36px;height:36px;border-radius:10px;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.order-item-info{flex:1;min-width:0;}
+.order-item-name{font-size:12px;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.order-item-sub{font-size:10px;color:var(--text3);margin-top:1px;}
+.qty-ctrl{display:flex;align-items:center;gap:5px;flex-shrink:0;}
+.qty-btn{width:21px;height:21px;border-radius:7px;background:var(--surface2);border:none;color:var(--text2);font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;}
+.qty-btn:hover{background:var(--accent);color:#fff;}
+.qty-val{font-size:12px;font-weight:700;min-width:16px;text-align:center;color:var(--text);}
+.order-item-price{font-size:12px;font-weight:700;color:var(--accent);min-width:50px;text-align:right;flex-shrink:0;}
+.addon-chips{display:flex;flex-wrap:wrap;gap:3px;margin-top:5px;}
+.addon-chip-tag{display:flex;align-items:center;gap:3px;background:var(--accent-bg);border:1px solid var(--accent-border);border-radius:6px;padding:2px 6px;font-size:10px;font-weight:500;color:var(--text3);}
+.chip-rmv{cursor:pointer;color:var(--accent);font-size:10px;margin-left:2px;}
+.chip-rmv:hover{color:#e05a1e;}
+.billing-section{border-top:1.5px dashed var(--border3);padding:12px 18px;flex-shrink:0;}
+.billing-row{display:flex;justify-content:space-between;font-size:12px;color:var(--text3);padding:2px 0;font-weight:500;}
+.billing-row.total{font-size:15px;font-weight:800;color:var(--text);padding-top:8px;margin-top:4px;border-top:1.5px solid var(--border3);}
+.billing-row.total span:last-child{color:var(--accent);}
+.pay-section{padding:10px 18px 14px;border-top:1px solid var(--border2);flex-shrink:0;}
+.pay-label{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;}
+.pay-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:10px;}
+.pay-btn{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 4px;background:var(--surface2);border:1.5px solid var(--border3);border-radius:12px;cursor:pointer;}
+.pay-btn:hover{border-color:var(--accent);}
+.pay-btn.selected{background:var(--accent-bg);border-color:var(--accent);box-shadow:0 2px 8px rgba(200,129,58,0.2);}
+.pay-icon{font-size:17px;}
+.pay-name{font-size:9px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:0.05em;}
+.pay-btn.selected .pay-name{color:var(--accent);}
+.charge-btn{width:100%;padding:13px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;cursor:pointer;border-radius:14px;transition:transform 0.15s,box-shadow 0.15s;box-shadow:0 4px 14px rgba(200,129,58,0.35);}
+.charge-btn:hover{box-shadow:0 6px 20px rgba(200,129,58,0.45);transform:translateY(-1px);}
+.charge-btn:active{transform:translateY(0);}
+.charge-btn:disabled{background:var(--surface3);color:var(--text4);cursor:not-allowed;transform:none;box-shadow:none;}
+.clear-btn{display:block;width:100%;margin-top:7px;padding:5px;background:none;border:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:600;color:var(--text4);cursor:pointer;text-transform:uppercase;letter-spacing:0.06em;transition:color 0.1s;}
+.clear-btn:hover{color:#e05a1e;}
+
+/* DASHBOARD */
+.dash-page{flex:1;overflow-y:auto;padding:24px;background:var(--bg);flex-direction:column;gap:20px;}
+.dash-page::-webkit-scrollbar{width:4px;}
+.dash-page::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
+.dash-title{font-size:20px;font-weight:800;color:var(--text);}
+.dash-subtitle{font-size:13px;color:var(--text3);margin-top:3px;}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px;}
+.stat-card{background:var(--surface);border-radius:18px;padding:18px;border:1.5px solid var(--border2);box-shadow:var(--card-shadow);}
+.stat-icon{font-size:24px;margin-bottom:10px;}
+.stat-label{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:5px;}
+.stat-value{font-size:22px;font-weight:800;color:var(--text);letter-spacing:-0.5px;}
+.stat-change{font-size:11px;font-weight:600;margin-top:4px;}
+.stat-change.up{color:#2d9a5f;}
+.stat-change.down{color:#e05a1e;}
+.dash-row{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin-top:14px;}
+.dash-card{background:var(--surface);border-radius:18px;padding:20px;border:1.5px solid var(--border2);box-shadow:var(--card-shadow);}
+.dash-card-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.dash-card-sub{font-size:11px;color:var(--text3);margin-bottom:16px;}
+.bar-chart{display:flex;align-items:flex-end;gap:8px;height:120px;}
+.bar-wrap{display:flex;flex-direction:column;align-items:center;gap:5px;flex:1;}
+.bar{width:100%;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--accent2),var(--accent));min-height:4px;cursor:pointer;position:relative;transition:height 0.5s cubic-bezier(0.34,1.2,0.64,1),opacity 0.15s;}
+.bar:hover{opacity:0.8;}
+.bar-tooltip{position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);background:var(--text);color:var(--surface);font-size:10px;font-weight:600;padding:3px 6px;border-radius:5px;white-space:nowrap;opacity:0;transition:opacity 0.15s;pointer-events:none;}
+.bar:hover .bar-tooltip{opacity:1;}
+.bar-label{font-size:10px;font-weight:600;color:var(--text3);}
+.top-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--surface2);}
+.top-item:last-child{border-bottom:none;}
+.top-item-emoji{width:34px;height:34px;border-radius:10px;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.top-item-info{flex:1;}
+.top-item-name{font-size:12px;font-weight:700;color:var(--text);}
+.top-item-cat{font-size:10px;color:var(--text3);}
+.top-item-bar-wrap{flex:1;height:6px;background:var(--surface2);border-radius:3px;overflow:hidden;}
+.top-item-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:3px;transition:width 0.6s cubic-bezier(0.34,1.2,0.64,1);}
+.top-item-count{font-size:12px;font-weight:700;color:var(--accent);min-width:30px;text-align:right;}
+.trend-line{display:flex;align-items:flex-end;gap:6px;height:80px;margin-top:8px;}
+.trend-col{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;}
+.trend-bar{width:100%;border-radius:5px 5px 2px 2px;background:var(--trend-inactive);transition:height 0.5s cubic-bezier(0.34,1.2,0.64,1);}
+.trend-bar.current{background:linear-gradient(180deg,var(--accent2),var(--accent));}
+.trend-label{font-size:9px;font-weight:600;color:var(--text3);}
+.payment-split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;}
+.pay-split-item{background:var(--split-bg);border-radius:12px;padding:12px;}
+.pay-split-icon{font-size:18px;margin-bottom:4px;}
+.pay-split-name{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;}
+.pay-split-val{font-size:14px;font-weight:800;color:var(--text);margin-top:2px;}
+.pay-split-pct{font-size:10px;font-weight:600;color:var(--accent);}
+
+/* MODAL */
+@keyframes modalIn{from{opacity:0;transform:scale(0.9);}to{opacity:1;transform:scale(1);}}
+.modal-overlay{display:none;position:fixed;inset:0;background:var(--modal-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);z-index:50;align-items:center;justify-content:center;padding:20px;}
+.item-modal{background:var(--surface);border-radius:24px;width:100%;max-width:400px;max-height:84vh;overflow-y:auto;display:flex;flex-direction:column;animation:modalIn 0.22s cubic-bezier(0.34,1.3,0.64,1);box-shadow:0 32px 80px rgba(0,0,0,0.25);border:1px solid var(--border);}
+.item-modal::-webkit-scrollbar{width:0;}
+.modal-head{padding:20px 20px 15px;border-bottom:1.5px solid var(--border2);flex-shrink:0;display:flex;align-items:center;gap:13px;}
+.modal-emoji-wrap{width:52px;height:52px;border-radius:16px;background:var(--surface2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:26px;}
+.modal-item-cat{font-size:10px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;}
+.modal-item-name{font-size:18px;font-weight:800;color:var(--text);line-height:1.2;}
+.modal-section-label{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;padding:13px 20px 8px;}
+.size-options{padding:0 14px;display:flex;flex-direction:column;gap:6px;}
+.ios-group{display:flex;flex-direction:column;gap:6px;}
+.size-opt{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:var(--size-bg);border:1.5px solid transparent;border-radius:13px;cursor:pointer;}
+.size-opt:hover{border-color:var(--accent-border);}
+.size-opt.selected{background:var(--accent-bg);border-color:var(--accent);}
+.sz{font-size:14px;font-weight:600;color:var(--text);}
+.sz-right{display:flex;align-items:center;gap:8px;}
+.sz-price{font-size:14px;font-weight:700;color:var(--text3);}
+.size-opt.selected .sz-price{color:var(--accent);}
+.sz-check{width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(0.5);transition:opacity 0.15s,transform 0.15s;}
+.size-opt.selected .sz-check{opacity:1;transform:scale(1);}
+.addon-list-wrap{margin:0 14px 4px;background:var(--addon-bg);border-radius:16px;overflow:hidden;}
+.addon-row{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-bottom:1px solid var(--border);cursor:pointer;}
+.addon-row:last-child{border-bottom:none;}
+.addon-row:hover{background:var(--accent-bg);}
+.addon-row.chosen{background:var(--accent-bg);}
+.ao-left{display:flex;align-items:center;gap:10px;}
+.ao-toggle{width:22px;height:22px;border-radius:50%;background:var(--surface);border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.15s;font-size:11px;color:transparent;font-weight:700;}
+.addon-row.chosen .ao-toggle{background:var(--accent);border-color:var(--accent);color:#fff;}
+.ao-name{font-size:13px;font-weight:600;color:var(--text);}
+.ao-price{font-size:12px;font-weight:700;color:var(--text3);}
+.addon-row.chosen .ao-price{color:var(--accent);}
+.modal-footer{padding:13px 14px 18px;border-top:1.5px solid var(--border2);display:flex;gap:10px;flex-shrink:0;margin-top:4px;}
+.modal-add-btn{flex:1;padding:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;cursor:pointer;border-radius:14px;transition:transform 0.15s,box-shadow 0.15s;box-shadow:0 4px 12px rgba(200,129,58,0.3);}
+.modal-add-btn:hover{box-shadow:0 6px 16px rgba(200,129,58,0.4);transform:translateY(-1px);}
+.modal-add-btn:active{transform:scale(0.98);}
+.modal-add-btn:disabled{background:var(--surface3);color:var(--text4);cursor:not-allowed;box-shadow:none;transform:none;}
+.modal-cancel-btn{padding:14px 16px;background:var(--surface2);border:none;color:var(--text3);font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;border-radius:14px;text-transform:uppercase;letter-spacing:0.04em;}
+.modal-cancel-btn:hover{background:var(--surface3);}
+
+/* SUCCESS */
+@keyframes successIn{from{opacity:0;transform:scale(0.85);}to{opacity:1;transform:scale(1);}}
+.overlay{position:fixed;inset:0;background:var(--modal-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;z-index:100;}
+.success-card{background:var(--surface);border-radius:24px;padding:36px 28px 28px;text-align:center;max-width:300px;width:90%;box-shadow:0 32px 80px rgba(0,0,0,0.25);border:1px solid var(--border);animation:successIn 0.25s cubic-bezier(0.34,1.3,0.64,1);}
+.success-icon{font-size:52px;margin-bottom:14px;display:block;}
+.success-title{font-size:20px;font-weight:800;color:var(--text);margin-bottom:5px;}
+.success-method{font-size:11px;font-weight:600;color:var(--text3);margin-bottom:3px;text-transform:uppercase;letter-spacing:0.1em;}
+.success-amount{font-size:30px;font-weight:800;color:var(--accent);margin-bottom:24px;}
+.new-order-btn{display:block;width:100%;padding:13px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;cursor:pointer;border-radius:14px;transition:transform 0.15s,box-shadow 0.15s;box-shadow:0 4px 12px rgba(200,129,58,0.3);}
+.new-order-btn:hover{box-shadow:0 6px 16px rgba(200,129,58,0.4);}
+.new-order-btn:active{transform:scale(0.98);}
+
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
+
+</style>
+<div id="pos-app-overlay">
+  <button id="pos-back-btn" onclick="closePOS()">← Back to Portfolio</button>
+  
+
+<div class="topbar">
+  <div style="display:flex;align-items:center;gap:16px;">
+    <div class="logo">
+      <div class="logo-mark">E</div>
+      <div class="logo-text">Eng<span>kape</span></div>
+    </div>
+    <div class="topbar-nav">
+      <button class="nav-btn active" onclick="showPage('pos')" id="nav-pos"><span class="nav-icon">🛒</span> Order</button>
+      <button class="nav-btn" onclick="showPage('dash')" id="nav-dash"><span class="nav-icon">📊</span> Dashboard</button>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <div class="status-pill"><span class="status-dot"></span>Online</div>
+    <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle dark mode">🌙</button>
+    <span class="clock" id="clock">—</span>
+  </div>
+</div>
+
+<!-- POS PAGE -->
+<div class="page active" id="page-pos">
+  <div class="main">
+    <div class="menu-panel">
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Search menu..." oninput="renderProducts()">
+      </div>
+      <div>
+        <div class="cat-section-label" style="margin-bottom:10px;">Choose Category</div>
+        <div class="cat-scroll" id="cat-bar"></div>
+      </div>
+      <div class="grid-header">
+        <div class="grid-title" id="grid-title">All Items</div>
+        <div class="grid-count" id="grid-count"></div>
+      </div>
+      <div class="products-grid" id="products-grid"></div>
+    </div>
+    <div class="order-panel">
+      <div class="order-header">
+        <div class="order-title">Bills</div>
+        <div class="order-num-badge" id="order-num">#001</div>
+      </div>
+      <div class="order-items" id="order-items">
+        <div class="empty-state"><div class="empty-icon">🛒</div><div class="empty-text">No items yet</div></div>
+      </div>
+      <div class="billing-section" id="billing-section" style="display:none">
+        <div class="billing-row"><span>Subtotal</span><span id="subtotal">₱0.00</span></div>
+        <div class="billing-row"><span>Tax (12%)</span><span id="vat">₱0.00</span></div>
+        <div class="billing-row total"><span>Total</span><span id="total">₱0.00</span></div>
+      </div>
+      <div class="pay-section">
+        <div class="pay-label">Payment Method</div>
+        <div class="pay-grid">
+          <button class="pay-btn" onclick="selectPay('cash',this)"><span class="pay-icon">💵</span><span class="pay-name">Cash</span></button>
+          <button class="pay-btn" onclick="selectPay('card',this)"><span class="pay-icon">💳</span><span class="pay-name">Card</span></button>
+          <button class="pay-btn" onclick="selectPay('gcash',this)"><span class="pay-icon">📱</span><span class="pay-name">GCash</span></button>
+          <button class="pay-btn" onclick="selectPay('maya',this)"><span class="pay-icon">💜</span><span class="pay-name">Maya</span></button>
+        </div>
+        <button class="charge-btn" id="charge-btn" onclick="charge()" disabled>Add to Billing</button>
+        <button class="clear-btn" onclick="clearOrder()">✕ Clear Order</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD PAGE -->
+<div class="page" id="page-dash">
+  <div class="dash-page" id="dash-page">
+    <div>
+      <div class="dash-title">Dashboard</div>
+      <div class="dash-subtitle">Sales overview — <span id="dash-date"></span></div>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-icon">💰</div>
+        <div class="stat-label">Today's Revenue</div>
+        <div class="stat-value" id="stat-today">₱0</div>
+        <div class="stat-change up" id="stat-today-change">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📦</div>
+        <div class="stat-label">Orders Today</div>
+        <div class="stat-value" id="stat-orders">0</div>
+        <div class="stat-change up" id="stat-orders-change">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📅</div>
+        <div class="stat-label">Monthly Revenue</div>
+        <div class="stat-value" id="stat-monthly">₱0</div>
+        <div class="stat-change up" id="stat-monthly-change">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🧾</div>
+        <div class="stat-label">Avg. Order Value</div>
+        <div class="stat-value" id="stat-avg">₱0</div>
+        <div class="stat-change up" id="stat-avg-change">—</div>
+      </div>
+    </div>
+
+    <div class="dash-row">
+      <div class="dash-card">
+        <div class="dash-card-title">Daily Sales — This Week</div>
+        <div class="dash-card-sub">Revenue per day (₱)</div>
+        <div class="bar-chart" id="bar-chart"></div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-title">Payment Split</div>
+        <div class="dash-card-sub">Method breakdown</div>
+        <div class="payment-split" id="pay-split"></div>
+      </div>
+    </div>
+
+    <div class="dash-row" style="grid-template-columns:1fr 1.4fr;">
+      <div class="dash-card">
+        <div class="dash-card-title">Monthly Trend</div>
+        <div class="dash-card-sub">Last 6 months (₱)</div>
+        <div class="trend-line" id="trend-chart"></div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-title">Top Items Today</div>
+        <div class="dash-card-sub">By units sold</div>
+        <div id="top-items"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ITEM MODAL -->
+<div class="modal-overlay" id="item-modal-overlay">
+  <div class="item-modal">
+    <div class="modal-head">
+      <div class="modal-emoji-wrap" id="modal-emoji"></div>
+      <div>
+        <div class="modal-item-cat" id="modal-cat"></div>
+        <div class="modal-item-name" id="modal-name"></div>
+      </div>
+    </div>
+    <div id="modal-sizes-section">
+      <div class="modal-section-label">Choose Size</div>
+      <div class="size-options" id="modal-sizes"></div>
+    </div>
+    <div id="modal-addons-section">
+      <div class="modal-section-label">Add-Ons <span style="color:#c0b0a0;font-size:9px;text-transform:none;letter-spacing:0;">(optional)</span></div>
+      <div class="addon-list-wrap" id="modal-addons"></div>
+    </div>
+    <div style="height:4px;flex-shrink:0;"></div>
+    <div class="modal-footer">
+      <button class="modal-cancel-btn" onclick="closeItemModal()">Cancel</button>
+      <button class="modal-add-btn" id="modal-add-btn" onclick="confirmAdd()">Add to Order</button>
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS -->
+<div class="overlay" id="overlay" style="display:none">
+  <div class="success-card">
+    <div class="success-icon">✅</div>
+    <div class="success-title">Payment Received!</div>
+    <div class="success-method" id="suc-method">—</div>
+    <div class="success-amount" id="suc-amount">₱0.00</div>
+    <button class="new-order-btn" onclick="newOrder()">New Order →</button>
+  </div>
+</div>
+
+<script>
+const DRINK_CATS=['Coffee','Non-Coffee','Blended','NC Blended','Cheese Cloud'];
+const FOOD_CATS=['Starters','Sandwiches','Waffles','Rice Meals','Buldak'];
+const CAT_ICONS={'All':'🍽️','Coffee':'☕','Non-Coffee':'🧋','Blended':'🥤','NC Blended':'🫧','Cheese Cloud':'🍵','Starters':'🍟','Sandwiches':'🥪','Waffles':'🧇','Rice Meals':'🍚','Buldak':'🍜'};
+const MENU=[
+  {id:'c1',name:'Americano',emoji:'☕',cat:'Coffee',sizes:{'12oz Hot':90,'16oz Iced':90,'22oz Iced':100}},
+  {id:'c2',name:'Cafe Latte',emoji:'☕',cat:'Coffee',sizes:{'12oz Hot':130,'16oz Iced':120,'22oz Iced':150}},
+  {id:'c3',name:'Caramel Latte',emoji:'☕',cat:'Coffee',sizes:{'12oz Hot':150,'16oz Iced':120,'22oz Iced':160}},
+  {id:'c4',name:'Spanish Latte',emoji:'☕',cat:'Coffee',sizes:{'12oz Hot':140,'16oz Iced':120,'22oz Iced':150}},
+  {id:'c5',name:'Sea Salt Cream',emoji:'🧂',cat:'Coffee',sizes:{'12oz Hot':150,'16oz Iced':140,'22oz Iced':160}},
+  {id:'c6',name:'White Choco Latte',emoji:'🤍',cat:'Coffee',sizes:{'12oz Hot':150,'16oz Iced':130,'22oz Iced':150}},
+  {id:'c7',name:'Hazelnut Latte',emoji:'☕',cat:'Coffee',sizes:{'12oz Hot':140,'16oz Iced':120,'22oz Iced':150}},
+  {id:'c8',name:'Mocha Latte',emoji:'☕',cat:'Coffee',sizes:{'12oz Hot':160,'16oz Iced':140,'22oz Iced':170}},
+  {id:'c9',name:'Biscoff Latte',emoji:'🍪',cat:'Coffee',sizes:{'12oz Hot':160,'16oz Iced':150,'22oz Iced':170}},
+  {id:'c10',name:'Engkape Signature',emoji:'⭐',cat:'Coffee',sizes:{'12oz Hot':150,'16oz Iced':140,'22oz Iced':160}},
+  {id:'nc1',name:'Signature Chocolate',emoji:'🍫',cat:'Non-Coffee',sizes:{'12oz':130,'16oz':120,'22oz':150}},
+  {id:'nc2',name:'White Chocolate',emoji:'🤍',cat:'Non-Coffee',sizes:{'12oz':130,'16oz':120,'22oz':150}},
+  {id:'nc3',name:'StrawBerry Milk',emoji:'🍓',cat:'Non-Coffee',sizes:{'16oz':120,'22oz':150}},
+  {id:'nc4',name:'BlueBerry Milk',emoji:'🫐',cat:'Non-Coffee',sizes:{'12oz':130,'16oz':120,'22oz':150}},
+  {id:'nc5',name:'Ube Halaya Latte',emoji:'🟣',cat:'Non-Coffee',sizes:{'16oz':130,'22oz':180}},
+  {id:'b1',name:'Java Chip',emoji:'☕',cat:'Blended',price:170},
+  {id:'b2',name:'Hazelnut',emoji:'☕',cat:'Blended',price:170},
+  {id:'b3',name:'White Chocolate',emoji:'🤍',cat:'Blended',price:180},
+  {id:'b4',name:'Biscoff',emoji:'🍪',cat:'Blended',price:180},
+  {id:'nb1',name:'Nutella Chocolate',emoji:'🍫',cat:'NC Blended',price:180},
+  {id:'nb2',name:'Strawberry',emoji:'🍓',cat:'NC Blended',price:150},
+  {id:'nb3',name:'Blueberry',emoji:'🫐',cat:'NC Blended',price:150},
+  {id:'nb4',name:'Cookies & Cream',emoji:'🍪',cat:'NC Blended',price:170},
+  {id:'ch1',name:'Matcha',emoji:'🍵',cat:'Cheese Cloud',sizes:{'16oz':140,'22oz':170}},
+  {id:'ch2',name:'Chocolate',emoji:'🍫',cat:'Cheese Cloud',sizes:{'16oz':130,'22oz':160}},
+  {id:'ch3',name:'Tiramisu',emoji:'🎂',cat:'Cheese Cloud',sizes:{'16oz':150,'22oz':180}},
+  {id:'ch4',name:'Strawberry',emoji:'🍓',cat:'Cheese Cloud',sizes:{'16oz':130,'22oz':160}},
+  {id:'s1',name:'Classic Fries',emoji:'🍟',cat:'Starters',price:70},
+  {id:'s2',name:'Cheesy Fries',emoji:'🧀',cat:'Starters',price:100},
+  {id:'s3',name:'Fries Overload',emoji:'🍟',cat:'Starters',price:150},
+  {id:'s4',name:'Mozzarella Sticks',emoji:'🧀',cat:'Starters',price:150},
+  {id:'s5',name:'Nachos',emoji:'🌮',cat:'Starters',price:160},
+  {id:'sw1',name:'Classic Grilled Cheese',emoji:'🥪',cat:'Sandwiches',price:150},
+  {id:'sw2',name:'Grilled Ham & Cheese',emoji:'🥪',cat:'Sandwiches',price:160},
+  {id:'sw3',name:'Classic Egg Mayo',emoji:'🥚',cat:'Sandwiches',price:140},
+  {id:'sw4',name:'Egg & Cheese Signature',emoji:'🍳',cat:'Sandwiches',price:160},
+  {id:'w1',name:'Classic Belgian Waffle',emoji:'🧇',cat:'Waffles',price:99},
+  {id:'w2',name:'Choco Chip Waffle',emoji:'🍫',cat:'Waffles',price:120},
+  {id:'r1',name:'Beef Tapa Rice Meal',emoji:'🍚',cat:'Rice Meals',price:189},
+  {id:'r2',name:'Hungarian Sausage Rice',emoji:'🌭',cat:'Rice Meals',price:169},
+  {id:'r3',name:'Corned Beef Rice Meal',emoji:'🥩',cat:'Rice Meals',price:159},
+  {id:'bd1',name:'Classic Buldak',emoji:'🍜',cat:'Buldak',price:139},
+  {id:'bd2',name:'Spam Egg Supreme',emoji:'🍳',cat:'Buldak',price:169},
+  {id:'bd3',name:'Hungarian Eggburst',emoji:'🌭',cat:'Buldak',price:179},
+];
+const DRINK_ADDONS=[{id:'dao1',name:'Espresso Shot',price:50},{id:'dao2',name:'Oat Milk',price:30},{id:'dao3',name:'Whipped Cream',price:50},{id:'dao4',name:'Whipping Cream',price:50},{id:'dao5',name:'Syrup (10ml)',price:15},{id:'dao6',name:'Sea Salt Cream',price:40}];
+const FOOD_ADDONS=[{id:'fao1',name:'Extra Egg',price:20},{id:'fao2',name:'Extra Cheese',price:30},{id:'fao3',name:'Extra Spam',price:30},{id:'fao4',name:'Hotdog',price:40},{id:'fao5',name:'Hungarian Sausage',price:45},{id:'fao6',name:'Extra Rice',price:20},{id:'fao7',name:'Cheese Sauce',price:20}];
+const CATS=['All',...new Set(MENU.map(m=>m.cat))];
+let order=[],activeCat='All',selPayMethod=null,orderCount=1;
+let modalItem=null,modalSelSize=null,modalSelAddons=[];
+
+// ── DEMO SALES DATA ──────────────────
+const DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const dailySales=[4200,5800,3900,6700,8100,9400,7200];
+const months=['Aug','Sep','Oct','Nov','Dec','Jan'];
+const monthlySales=[48000,52000,61000,55000,72000,68000];
+const topItems=[
+  {name:'Engkape Signature',emoji:'⭐',cat:'Coffee',count:28},
+  {name:'Spam Egg Supreme',emoji:'🍳',cat:'Buldak',count:22},
+  {name:'Cafe Latte',emoji:'☕',cat:'Coffee',count:19},
+  {name:'Beef Tapa Rice',emoji:'🍚',cat:'Rice Meals',count:15},
+  {name:'Matcha Cloud',emoji:'🍵',cat:'Cheese Cloud',count:12},
+];
+const paySplit=[
+  {name:'Cash',icon:'💵',val:3240,pct:45},
+  {name:'GCash',icon:'📱',val:2160,pct:30},
+  {name:'Maya',icon:'💜',val:1080,pct:15},
+  {name:'Card',icon:'💳',val:720,pct:10},
+];
+
+function fmt(n){return '₱'+n.toFixed(2);}
+function fmtK(n){return n>=1000?'₱'+(n/1000).toFixed(1)+'k':'₱'+n;}
+
+// ── PAGE NAV ─────────────────────────
+function showPage(p){
+  document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(el=>el.classList.remove('active'));
+  document.getElementById('page-'+p).classList.add('active');
+  document.getElementById('nav-'+p).classList.add('active');
+  if(p==='dash') renderDashboard();
+}
+
+// ── DASHBOARD ────────────────────────
+function renderDashboard(){
+  const now=new Date();
+  document.getElementById('dash-date').textContent=now.toLocaleDateString('en-PH',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  const todayIdx=Math.min(now.getDay()||6,6);
+  const todayRev=dailySales[todayIdx];
+  const totalOrders=orderCount-1;
+  const monthly=monthlySales[monthlySales.length-1];
+  const avg=totalOrders>0?(order.reduce((s,o)=>s+(o.price+o.addons.reduce((a,x)=>a+x.price,0))*o.qty,0)*1.12/totalOrders):0;
+
+  document.getElementById('stat-today').textContent=fmtK(todayRev);
+  document.getElementById('stat-today-change').textContent='↑ 12% vs yesterday';
+  document.getElementById('stat-orders').textContent=totalOrders+38;
+  document.getElementById('stat-orders-change').textContent='↑ 8% vs yesterday';
+  document.getElementById('stat-monthly').textContent=fmtK(monthly);
+  document.getElementById('stat-monthly-change').textContent='↑ 5.6% vs last month';
+  document.getElementById('stat-avg').textContent=avg>0?fmt(avg):'₱187.50';
+  document.getElementById('stat-avg-change').textContent='↑ 3.2% vs yesterday';
+
+  const maxDaily=Math.max(...dailySales);
+  document.getElementById('bar-chart').innerHTML=dailySales.map((v,i)=>`
+    <div class="bar-wrap">
+      <div class="bar" style="height:${Math.round((v/maxDaily)*100)}px">
+        <div class="bar-tooltip">${fmtK(v)}</div>
+      </div>
+      <div class="bar-label">${DAYS[i]}</div>
+    </div>`).join('');
+
+  document.getElementById('pay-split').innerHTML=paySplit.map(p=>`
+    <div class="pay-split-item">
+      <div class="pay-split-icon">${p.icon}</div>
+      <div class="pay-split-name">${p.name}</div>
+      <div class="pay-split-val">${fmtK(p.val)}</div>
+      <div class="pay-split-pct">${p.pct}%</div>
+    </div>`).join('');
+
+  const maxM=Math.max(...monthlySales);
+  const curIdx=monthlySales.length-1;
+  document.getElementById('trend-chart').innerHTML=monthlySales.map((v,i)=>`
+    <div class="trend-col">
+      <div class="trend-bar${i===curIdx?' current':''}" style="height:${Math.round((v/maxM)*70)}px"></div>
+      <div class="trend-label">${months[i]}</div>
+    </div>`).join('');
+
+  const maxCount=topItems[0].count;
+  document.getElementById('top-items').innerHTML=topItems.map(it=>`
+    <div class="top-item">
+      <div class="top-item-emoji">${it.emoji}</div>
+      <div class="top-item-info">
+        <div class="top-item-name">${it.name}</div>
+        <div class="top-item-cat">${it.cat}</div>
+      </div>
+      <div class="top-item-bar-wrap"><div class="top-item-bar" style="width:${Math.round((it.count/maxCount)*100)}%"></div></div>
+      <div class="top-item-count">${it.count}</div>
+    </div>`).join('');
+}
+
+// ── CATEGORIES / PRODUCTS ─────────────
+function renderCats(){
+  document.getElementById('cat-bar').innerHTML=CATS.map(c=>
+    `<button class="cat-btn${c===activeCat?' active':''}" onclick="setCat('${c}')">
+      <span class="cat-icon">${CAT_ICONS[c]||'🍽️'}</span>
+      <span class="cat-label">${c}</span>
+    </button>`).join('');
+}
+function setCat(cat){activeCat=cat;renderCats();renderProducts();}
+function renderProducts(){
+  const q=document.getElementById('search-input').value.toLowerCase();
+  let list=activeCat==='All'?MENU:MENU.filter(m=>m.cat===activeCat);
+  if(q) list=list.filter(m=>m.name.toLowerCase().includes(q));
+  document.getElementById('grid-title').textContent=activeCat==='All'?'All Items':activeCat+' Menu';
+  document.getElementById('grid-count').textContent=list.length+' items';
+  document.getElementById('products-grid').innerHTML=list.map(p=>{
+    const hasSizes=!!p.sizes;
+    const base=hasSizes?Math.min(...Object.values(p.sizes)):p.price;
+    return `<div class="product-card" onclick="openItemModal('${p.id}')" role="button" tabindex="0">
+      <div class="product-emoji-wrap">${p.emoji}</div>
+      <div class="product-cat">${p.cat}</div>
+      <div class="product-name">${p.name}</div>
+      <div class="product-price">${hasSizes?'from ':''}<span style="color:#c8813a;font-size:13px;font-weight:800;">₱${base}</span></div>
+      <div class="product-add-icon">+</div>
+    </div>`;
+  }).join('');
+}
+
+// ── MODAL ────────────────────────────
+function openItemModal(id){
+  modalItem=MENU.find(m=>m.id===id);
+  modalSelSize=null;modalSelAddons=[];
+  document.getElementById('modal-emoji').textContent=modalItem.emoji;
+  document.getElementById('modal-cat').textContent=modalItem.cat;
+  document.getElementById('modal-name').textContent=modalItem.name;
+  const sizeSec=document.getElementById('modal-sizes-section');
+  if(modalItem.sizes){
+    sizeSec.style.display='block';
+    document.getElementById('modal-sizes').innerHTML='<div class="ios-group">'+Object.entries(modalItem.sizes).map(([sz,pr])=>
+      `<div class="size-opt" id="sopt_${sz.replace(/\s+/g,'_')}" onclick="selectSize('${sz}',${pr})">
+        <span class="sz">${sz}</span>
+        <span class="sz-right"><span class="sz-price">₱${pr}</span><span class="sz-check">✓</span></span>
+      </div>`).join('')+'</div>';
+  } else {
+    sizeSec.style.display='none';
+    modalSelSize={label:null,price:modalItem.price};
+  }
+  const addons=DRINK_CATS.includes(modalItem.cat)?DRINK_ADDONS:FOOD_ADDONS;
+  document.getElementById('modal-addons').innerHTML=addons.map(a=>
+    `<div class="addon-row" id="aopt_${a.id}" onclick="toggleAddon('${a.id}','${a.name}',${a.price})">
+      <div class="ao-left"><div class="ao-toggle" id="acheck_${a.id}">✓</div><span class="ao-name">${a.name}</span></div>
+      <span class="ao-price">+₱${a.price}</span>
+    </div>`).join('');
+  updateAddBtn();
+  document.getElementById('item-modal-overlay').style.display='flex';
+}
+function selectSize(sz,pr){
+  modalSelSize={label:sz,price:pr};
+  document.querySelectorAll('.size-opt').forEach(el=>el.classList.remove('selected'));
+  document.getElementById('sopt_'+sz.replace(/\s+/g,'_')).classList.add('selected');
+  updateAddBtn();
+}
+function toggleAddon(id,name,price){
+  const idx=modalSelAddons.findIndex(a=>a.id===id);
+  if(idx>=0){modalSelAddons.splice(idx,1);document.getElementById('aopt_'+id).classList.remove('chosen');}
+  else{modalSelAddons.push({uid:id+'_'+Date.now(),id,name,price});document.getElementById('aopt_'+id).classList.add('chosen');}
+  updateAddBtn();
+}
+function updateAddBtn(){
+  const btn=document.getElementById('modal-add-btn');
+  const needsSize=!!modalItem.sizes;
+  btn.disabled=needsSize&&!modalSelSize;
+  if(modalSelSize){
+    const ao=modalSelAddons.reduce((s,a)=>s+a.price,0);
+    btn.textContent='Add to Order — ₱'+(modalSelSize.price+ao).toFixed(2);
+  } else {
+    btn.textContent='Select a size first';
+  }
+}
+function confirmAdd(){
+  if(!modalItem||(!modalSelSize&&modalItem.sizes)) return;
+  const key=modalSelSize.label?modalItem.id+'_'+modalSelSize.label.replace(/\s+/g,'_'):modalItem.id;
+  const addonsSnap=modalSelAddons.map(a=>({uid:a.uid,id:a.id,name:a.name,price:a.price}));
+  if(addonsSnap.length===0){const ex=order.find(o=>o.key===key);if(ex){ex.qty++;closeItemModal();renderOrder();return;}}
+  order.push({key:key+'_'+Date.now(),name:modalItem.name,emoji:modalItem.emoji,price:modalSelSize.price,size:modalSelSize.label,qty:1,addons:addonsSnap});
+  closeItemModal();renderOrder();
+}
+function closeItemModal(){document.getElementById('item-modal-overlay').style.display='none';modalItem=null;modalSelSize=null;modalSelAddons=[];}
+
+// ── ORDER ────────────────────────────
+function removeAddon(itemKey,uid){const item=order.find(o=>o.key===itemKey);if(item)item.addons=item.addons.filter(a=>a.uid!==uid);renderOrder();}
+function changeQty(key,d){const item=order.find(o=>o.key===key);if(!item)return;item.qty+=d;if(item.qty<=0)order=order.filter(o=>o.key!==key);renderOrder();}
+function renderOrder(){
+  const container=document.getElementById('order-items');
+  const billing=document.getElementById('billing-section');
+  const chargeBtn=document.getElementById('charge-btn');
+  if(order.length===0){
+    container.innerHTML='<div class="empty-state"><div class="empty-icon">🛒</div><div class="empty-text">No items yet</div></div>';
+    billing.style.display='none';chargeBtn.disabled=true;chargeBtn.textContent='Add to Billing';return;
+  }
+  container.innerHTML=order.map(item=>{
+    const aoTotal=item.addons.reduce((s,a)=>s+a.price,0);
+    const lineTotal=(item.price+aoTotal)*item.qty;
+    const chips=item.addons.map(a=>`<span class="addon-chip-tag">${a.name} +₱${a.price}<span class="chip-rmv" onclick="removeAddon('${item.key}','${a.uid}')">✕</span></span>`).join('');
+    return `<div class="order-item-wrap">
+      <div class="order-item">
+        <div class="order-item-emoji">${item.emoji}</div>
+        <div class="order-item-info">
+          <div class="order-item-name">${item.name}${item.size?' · '+item.size:''}</div>
+          <div class="order-item-sub">₱${item.price} each</div>
+        </div>
+        <div class="qty-ctrl">
+          <button class="qty-btn" onclick="changeQty('${item.key}',-1)">−</button>
+          <span class="qty-val">${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty('${item.key}',1)">+</button>
+        </div>
+        <div class="order-item-price">₱${lineTotal.toFixed(2)}</div>
+      </div>
+      ${chips?`<div class="addon-chips">${chips}</div>`:''}
+    </div>`;
+  }).join('');
+  const sub=order.reduce((s,o)=>s+(o.price+o.addons.reduce((a,x)=>a+x.price,0))*o.qty,0);
+  const vat=sub*0.12;const grand=sub+vat;
+  document.getElementById('subtotal').textContent=fmt(sub);
+  document.getElementById('vat').textContent=fmt(vat);
+  document.getElementById('total').textContent=fmt(grand);
+  billing.style.display='block';
+  if(selPayMethod){
+    chargeBtn.disabled=false;
+    const lbl={cash:'Cash',card:'Card',gcash:'GCash',maya:'Maya'};
+    chargeBtn.textContent='Charge ₱'+grand.toFixed(2)+' · '+lbl[selPayMethod];
+  } else {chargeBtn.disabled=true;chargeBtn.textContent='Select Payment Method';}
+}
+function selectPay(type,btn){
+  selPayMethod=type;
+  document.querySelectorAll('.pay-btn').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');if(order.length>0)renderOrder();
+}
+function charge(){
+  if(!selPayMethod||order.length===0)return;
+  const sub=order.reduce((s,o)=>s+(o.price+o.addons.reduce((a,x)=>a+x.price,0))*o.qty,0);
+  const grand=sub*1.12;
+  const lbl={cash:'Cash Payment',card:'Card Payment',gcash:'GCash',maya:'Maya'};
+  document.getElementById('suc-method').textContent=lbl[selPayMethod];
+  document.getElementById('suc-amount').textContent=fmt(grand);
+  document.getElementById('overlay').style.display='flex';
+}
+function newOrder(){
+  order=[];selPayMethod=null;orderCount++;
+  document.getElementById('order-num').textContent='#'+String(orderCount).padStart(3,'0');
+  document.getElementById('overlay').style.display='none';
+  document.querySelectorAll('.pay-btn').forEach(b=>b.classList.remove('selected'));
+  renderOrder();
+}
+function clearOrder(){order=[];selPayMethod=null;document.querySelectorAll('.pay-btn').forEach(b=>b.classList.remove('selected'));renderOrder();}
+function updateClock(){document.getElementById('clock').textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',second:'2-digit'});}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeItemModal();document.getElementById('overlay').style.display='none';}});
+document.getElementById('item-modal-overlay').addEventListener('click',e=>{if(e.target===document.getElementById('item-modal-overlay'))closeItemModal();});
+
+function toggleTheme(){
+  const isDark=document.documentElement.classList.toggle('dark');
+  document.getElementById('theme-btn').textContent=isDark?'☀️':'🌙';
+  localStorage.setItem('engkape-theme',isDark?'dark':'light');
+}
+if(localStorage.getItem('engkape-theme')==='dark'){
+  document.documentElement.classList.add('dark');
+  document.getElementById('theme-btn').textContent='☀️';
+}
+
+renderCats();renderProducts();renderOrder();updateClock();setInterval(updateClock,1000);
+</script>
+
+</div>
+
+
+<script>
+// ── POS LAUNCH / CLOSE ──
+function openPOS() {
+  const overlay = document.getElementById('pos-app-overlay');
+  const posStyles = document.getElementById('pos-app-styles');
+  posStyles.disabled = false;
+  overlay.style.display = 'flex';
+  // force reflow then fade in
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      overlay.classList.add('visible');
+    });
+  });
+  document.body.style.overflow = 'hidden';
+  // init POS if not yet done
+  if (!window._posInited) {
+    window._posInited = true;
+    renderCats(); renderProducts(); renderOrder(); updateClock();
+    setInterval(updateClock, 1000);
+  }
+}
+function closePOS() {
+  const overlay = document.getElementById('pos-app-overlay');
+  overlay.classList.remove('visible');
+  setTimeout(() => {
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+  }, 400);
+}
+
+// ── POS APP SCRIPT ──
+
+const DRINK_CATS=['Coffee','Non-Coffee','Blended','NC Blended','Cheese Cloud'];
+const FOOD_CATS=['Starters','Sandwiches','Waffles','Rice Meals','Buldak'];
+const CAT_ICONS={'All':'🍽️','Coffee':'☕','Non-Coffee':'🧋','Blended':'🥤','NC Blended':'🫧','Cheese Cloud':'🍵','Starters':'🍟','Sandwiches':'🥪','Waffles':'🧇','Rice Meals':'🍚','Buldak':'🍜'};
+const MENU=[
+  {id:'c1',name:'Americano',emoji:'☕',cat:'Coffee',sizes:{'12oz Hot':90,'16oz Iced':90,'22oz Iced':100}},
+  {id:'c2',name:'Cafe Latte',emoji:'☕',cat:'Coffee',sizes:{'12oz Hot':130,'16oz Iced':120,'22oz Iced':150}},
+  {id:'c3',name:'Caramel Latte',emoji:'☕',cat:'Coffee',sizes:{'12oz Hot':150,'16oz Iced':120,'22oz Iced':160}},
+  {id:'c4',name:'Spanish Latte',emoji:'☕',cat:'Coffee',sizes:{'12oz Hot':140,'16oz Iced':120,'22oz Iced':150}},
+  {id:'c5',name:'Sea Salt Cream',emoji:'🧂',cat:'Coffee',sizes:{'12oz Hot':150,'16oz Iced':140,'22oz Iced':160}},
+  {id:'c6',name:'White Choco Latte',emoji:'🤍',cat:'Coffee',sizes:{'12oz Hot':150,'16oz Iced':130,'22oz Iced':150}},
+  {id:'c7',name:'Hazelnut Latte',emoji:'☕',cat:'Coffee',sizes:{'12oz Hot':140,'16oz Iced':120,'22oz Iced':150}},
+  {id:'c8',name:'Mocha Latte',emoji:'☕',cat:'Coffee',sizes:{'12oz Hot':160,'16oz Iced':140,'22oz Iced':170}},
+  {id:'c9',name:'Biscoff Latte',emoji:'🍪',cat:'Coffee',sizes:{'12oz Hot':160,'16oz Iced':150,'22oz Iced':170}},
+  {id:'c10',name:'Engkape Signature',emoji:'⭐',cat:'Coffee',sizes:{'12oz Hot':150,'16oz Iced':140,'22oz Iced':160}},
+  {id:'nc1',name:'Signature Chocolate',emoji:'🍫',cat:'Non-Coffee',sizes:{'12oz':130,'16oz':120,'22oz':150}},
+  {id:'nc2',name:'White Chocolate',emoji:'🤍',cat:'Non-Coffee',sizes:{'12oz':130,'16oz':120,'22oz':150}},
+  {id:'nc3',name:'StrawBerry Milk',emoji:'🍓',cat:'Non-Coffee',sizes:{'16oz':120,'22oz':150}},
+  {id:'nc4',name:'BlueBerry Milk',emoji:'🫐',cat:'Non-Coffee',sizes:{'12oz':130,'16oz':120,'22oz':150}},
+  {id:'nc5',name:'Ube Halaya Latte',emoji:'🟣',cat:'Non-Coffee',sizes:{'16oz':130,'22oz':180}},
+  {id:'b1',name:'Java Chip',emoji:'☕',cat:'Blended',price:170},
+  {id:'b2',name:'Hazelnut',emoji:'☕',cat:'Blended',price:170},
+  {id:'b3',name:'White Chocolate',emoji:'🤍',cat:'Blended',price:180},
+  {id:'b4',name:'Biscoff',emoji:'🍪',cat:'Blended',price:180},
+  {id:'nb1',name:'Nutella Chocolate',emoji:'🍫',cat:'NC Blended',price:180},
+  {id:'nb2',name:'Strawberry',emoji:'🍓',cat:'NC Blended',price:150},
+  {id:'nb3',name:'Blueberry',emoji:'🫐',cat:'NC Blended',price:150},
+  {id:'nb4',name:'Cookies & Cream',emoji:'🍪',cat:'NC Blended',price:170},
+  {id:'ch1',name:'Matcha',emoji:'🍵',cat:'Cheese Cloud',sizes:{'16oz':140,'22oz':170}},
+  {id:'ch2',name:'Chocolate',emoji:'🍫',cat:'Cheese Cloud',sizes:{'16oz':130,'22oz':160}},
+  {id:'ch3',name:'Tiramisu',emoji:'🎂',cat:'Cheese Cloud',sizes:{'16oz':150,'22oz':180}},
+  {id:'ch4',name:'Strawberry',emoji:'🍓',cat:'Cheese Cloud',sizes:{'16oz':130,'22oz':160}},
+  {id:'s1',name:'Classic Fries',emoji:'🍟',cat:'Starters',price:70},
+  {id:'s2',name:'Cheesy Fries',emoji:'🧀',cat:'Starters',price:100},
+  {id:'s3',name:'Fries Overload',emoji:'🍟',cat:'Starters',price:150},
+  {id:'s4',name:'Mozzarella Sticks',emoji:'🧀',cat:'Starters',price:150},
+  {id:'s5',name:'Nachos',emoji:'🌮',cat:'Starters',price:160},
+  {id:'sw1',name:'Classic Grilled Cheese',emoji:'🥪',cat:'Sandwiches',price:150},
+  {id:'sw2',name:'Grilled Ham & Cheese',emoji:'🥪',cat:'Sandwiches',price:160},
+  {id:'sw3',name:'Classic Egg Mayo',emoji:'🥚',cat:'Sandwiches',price:140},
+  {id:'sw4',name:'Egg & Cheese Signature',emoji:'🍳',cat:'Sandwiches',price:160},
+  {id:'w1',name:'Classic Belgian Waffle',emoji:'🧇',cat:'Waffles',price:99},
+  {id:'w2',name:'Choco Chip Waffle',emoji:'🍫',cat:'Waffles',price:120},
+  {id:'r1',name:'Beef Tapa Rice Meal',emoji:'🍚',cat:'Rice Meals',price:189},
+  {id:'r2',name:'Hungarian Sausage Rice',emoji:'🌭',cat:'Rice Meals',price:169},
+  {id:'r3',name:'Corned Beef Rice Meal',emoji:'🥩',cat:'Rice Meals',price:159},
+  {id:'bd1',name:'Classic Buldak',emoji:'🍜',cat:'Buldak',price:139},
+  {id:'bd2',name:'Spam Egg Supreme',emoji:'🍳',cat:'Buldak',price:169},
+  {id:'bd3',name:'Hungarian Eggburst',emoji:'🌭',cat:'Buldak',price:179},
+];
+const DRINK_ADDONS=[{id:'dao1',name:'Espresso Shot',price:50},{id:'dao2',name:'Oat Milk',price:30},{id:'dao3',name:'Whipped Cream',price:50},{id:'dao4',name:'Whipping Cream',price:50},{id:'dao5',name:'Syrup (10ml)',price:15},{id:'dao6',name:'Sea Salt Cream',price:40}];
+const FOOD_ADDONS=[{id:'fao1',name:'Extra Egg',price:20},{id:'fao2',name:'Extra Cheese',price:30},{id:'fao3',name:'Extra Spam',price:30},{id:'fao4',name:'Hotdog',price:40},{id:'fao5',name:'Hungarian Sausage',price:45},{id:'fao6',name:'Extra Rice',price:20},{id:'fao7',name:'Cheese Sauce',price:20}];
+const CATS=['All',...new Set(MENU.map(m=>m.cat))];
+let order=[],activeCat='All',selPayMethod=null,orderCount=1;
+let modalItem=null,modalSelSize=null,modalSelAddons=[];
+
+// ── DEMO SALES DATA ──────────────────
+const DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const dailySales=[4200,5800,3900,6700,8100,9400,7200];
+const months=['Aug','Sep','Oct','Nov','Dec','Jan'];
+const monthlySales=[48000,52000,61000,55000,72000,68000];
+const topItems=[
+  {name:'Engkape Signature',emoji:'⭐',cat:'Coffee',count:28},
+  {name:'Spam Egg Supreme',emoji:'🍳',cat:'Buldak',count:22},
+  {name:'Cafe Latte',emoji:'☕',cat:'Coffee',count:19},
+  {name:'Beef Tapa Rice',emoji:'🍚',cat:'Rice Meals',count:15},
+  {name:'Matcha Cloud',emoji:'🍵',cat:'Cheese Cloud',count:12},
+];
+const paySplit=[
+  {name:'Cash',icon:'💵',val:3240,pct:45},
+  {name:'GCash',icon:'📱',val:2160,pct:30},
+  {name:'Maya',icon:'💜',val:1080,pct:15},
+  {name:'Card',icon:'💳',val:720,pct:10},
+];
+
+function fmt(n){return '₱'+n.toFixed(2);}
+function fmtK(n){return n>=1000?'₱'+(n/1000).toFixed(1)+'k':'₱'+n;}
+
+// ── PAGE NAV ─────────────────────────
+function showPage(p){
+  document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(el=>el.classList.remove('active'));
+  document.getElementById('page-'+p).classList.add('active');
+  document.getElementById('nav-'+p).classList.add('active');
+  if(p==='dash') renderDashboard();
+}
+
+// ── DASHBOARD ────────────────────────
+function renderDashboard(){
+  const now=new Date();
+  document.getElementById('dash-date').textContent=now.toLocaleDateString('en-PH',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  const todayIdx=Math.min(now.getDay()||6,6);
+  const todayRev=dailySales[todayIdx];
+  const totalOrders=orderCount-1;
+  const monthly=monthlySales[monthlySales.length-1];
+  const avg=totalOrders>0?(order.reduce((s,o)=>s+(o.price+o.addons.reduce((a,x)=>a+x.price,0))*o.qty,0)*1.12/totalOrders):0;
+
+  document.getElementById('stat-today').textContent=fmtK(todayRev);
+  document.getElementById('stat-today-change').textContent='↑ 12% vs yesterday';
+  document.getElementById('stat-orders').textContent=totalOrders+38;
+  document.getElementById('stat-orders-change').textContent='↑ 8% vs yesterday';
+  document.getElementById('stat-monthly').textContent=fmtK(monthly);
+  document.getElementById('stat-monthly-change').textContent='↑ 5.6% vs last month';
+  document.getElementById('stat-avg').textContent=avg>0?fmt(avg):'₱187.50';
+  document.getElementById('stat-avg-change').textContent='↑ 3.2% vs yesterday';
+
+  const maxDaily=Math.max(...dailySales);
+  document.getElementById('bar-chart').innerHTML=dailySales.map((v,i)=>`
+    <div class="bar-wrap">
+      <div class="bar" style="height:${Math.round((v/maxDaily)*100)}px">
+        <div class="bar-tooltip">${fmtK(v)}</div>
+      </div>
+      <div class="bar-label">${DAYS[i]}</div>
+    </div>`).join('');
+
+  document.getElementById('pay-split').innerHTML=paySplit.map(p=>`
+    <div class="pay-split-item">
+      <div class="pay-split-icon">${p.icon}</div>
+      <div class="pay-split-name">${p.name}</div>
+      <div class="pay-split-val">${fmtK(p.val)}</div>
+      <div class="pay-split-pct">${p.pct}%</div>
+    </div>`).join('');
+
+  const maxM=Math.max(...monthlySales);
+  const curIdx=monthlySales.length-1;
+  document.getElementById('trend-chart').innerHTML=monthlySales.map((v,i)=>`
+    <div class="trend-col">
+      <div class="trend-bar${i===curIdx?' current':''}" style="height:${Math.round((v/maxM)*70)}px"></div>
+      <div class="trend-label">${months[i]}</div>
+    </div>`).join('');
+
+  const maxCount=topItems[0].count;
+  document.getElementById('top-items').innerHTML=topItems.map(it=>`
+    <div class="top-item">
+      <div class="top-item-emoji">${it.emoji}</div>
+      <div class="top-item-info">
+        <div class="top-item-name">${it.name}</div>
+        <div class="top-item-cat">${it.cat}</div>
+      </div>
+      <div class="top-item-bar-wrap"><div class="top-item-bar" style="width:${Math.round((it.count/maxCount)*100)}%"></div></div>
+      <div class="top-item-count">${it.count}</div>
+    </div>`).join('');
+}
+
+// ── CATEGORIES / PRODUCTS ─────────────
+function renderCats(){
+  document.getElementById('cat-bar').innerHTML=CATS.map(c=>
+    `<button class="cat-btn${c===activeCat?' active':''}" onclick="setCat('${c}')">
+      <span class="cat-icon">${CAT_ICONS[c]||'🍽️'}</span>
+      <span class="cat-label">${c}</span>
+    </button>`).join('');
+}
+function setCat(cat){activeCat=cat;renderCats();renderProducts();}
+function renderProducts(){
+  const q=document.getElementById('search-input').value.toLowerCase();
+  let list=activeCat==='All'?MENU:MENU.filter(m=>m.cat===activeCat);
+  if(q) list=list.filter(m=>m.name.toLowerCase().includes(q));
+  document.getElementById('grid-title').textContent=activeCat==='All'?'All Items':activeCat+' Menu';
+  document.getElementById('grid-count').textContent=list.length+' items';
+  document.getElementById('products-grid').innerHTML=list.map(p=>{
+    const hasSizes=!!p.sizes;
+    const base=hasSizes?Math.min(...Object.values(p.sizes)):p.price;
+    return `<div class="product-card" onclick="openItemModal('${p.id}')" role="button" tabindex="0">
+      <div class="product-emoji-wrap">${p.emoji}</div>
+      <div class="product-cat">${p.cat}</div>
+      <div class="product-name">${p.name}</div>
+      <div class="product-price">${hasSizes?'from ':''}<span style="color:#c8813a;font-size:13px;font-weight:800;">₱${base}</span></div>
+      <div class="product-add-icon">+</div>
+    </div>`;
+  }).join('');
+}
+
+// ── MODAL ────────────────────────────
+function openItemModal(id){
+  modalItem=MENU.find(m=>m.id===id);
+  modalSelSize=null;modalSelAddons=[];
+  document.getElementById('modal-emoji').textContent=modalItem.emoji;
+  document.getElementById('modal-cat').textContent=modalItem.cat;
+  document.getElementById('modal-name').textContent=modalItem.name;
+  const sizeSec=document.getElementById('modal-sizes-section');
+  if(modalItem.sizes){
+    sizeSec.style.display='block';
+    document.getElementById('modal-sizes').innerHTML='<div class="ios-group">'+Object.entries(modalItem.sizes).map(([sz,pr])=>
+      `<div class="size-opt" id="sopt_${sz.replace(/\s+/g,'_')}" onclick="selectSize('${sz}',${pr})">
+        <span class="sz">${sz}</span>
+        <span class="sz-right"><span class="sz-price">₱${pr}</span><span class="sz-check">✓</span></span>
+      </div>`).join('')+'</div>';
+  } else {
+    sizeSec.style.display='none';
+    modalSelSize={label:null,price:modalItem.price};
+  }
+  const addons=DRINK_CATS.includes(modalItem.cat)?DRINK_ADDONS:FOOD_ADDONS;
+  document.getElementById('modal-addons').innerHTML=addons.map(a=>
+    `<div class="addon-row" id="aopt_${a.id}" onclick="toggleAddon('${a.id}','${a.name}',${a.price})">
+      <div class="ao-left"><div class="ao-toggle" id="acheck_${a.id}">✓</div><span class="ao-name">${a.name}</span></div>
+      <span class="ao-price">+₱${a.price}</span>
+    </div>`).join('');
+  updateAddBtn();
+  document.getElementById('item-modal-overlay').style.display='flex';
+}
+function selectSize(sz,pr){
+  modalSelSize={label:sz,price:pr};
+  document.querySelectorAll('.size-opt').forEach(el=>el.classList.remove('selected'));
+  document.getElementById('sopt_'+sz.replace(/\s+/g,'_')).classList.add('selected');
+  updateAddBtn();
+}
+function toggleAddon(id,name,price){
+  const idx=modalSelAddons.findIndex(a=>a.id===id);
+  if(idx>=0){modalSelAddons.splice(idx,1);document.getElementById('aopt_'+id).classList.remove('chosen');}
+  else{modalSelAddons.push({uid:id+'_'+Date.now(),id,name,price});document.getElementById('aopt_'+id).classList.add('chosen');}
+  updateAddBtn();
+}
+function updateAddBtn(){
+  const btn=document.getElementById('modal-add-btn');
+  const needsSize=!!modalItem.sizes;
+  btn.disabled=needsSize&&!modalSelSize;
+  if(modalSelSize){
+    const ao=modalSelAddons.reduce((s,a)=>s+a.price,0);
+    btn.textContent='Add to Order — ₱'+(modalSelSize.price+ao).toFixed(2);
+  } else {
+    btn.textContent='Select a size first';
+  }
+}
+function confirmAdd(){
+  if(!modalItem||(!modalSelSize&&modalItem.sizes)) return;
+  const key=modalSelSize.label?modalItem.id+'_'+modalSelSize.label.replace(/\s+/g,'_'):modalItem.id;
+  const addonsSnap=modalSelAddons.map(a=>({uid:a.uid,id:a.id,name:a.name,price:a.price}));
+  if(addonsSnap.length===0){const ex=order.find(o=>o.key===key);if(ex){ex.qty++;closeItemModal();renderOrder();return;}}
+  order.push({key:key+'_'+Date.now(),name:modalItem.name,emoji:modalItem.emoji,price:modalSelSize.price,size:modalSelSize.label,qty:1,addons:addonsSnap});
+  closeItemModal();renderOrder();
+}
+function closeItemModal(){document.getElementById('item-modal-overlay').style.display='none';modalItem=null;modalSelSize=null;modalSelAddons=[];}
+
+// ── ORDER ────────────────────────────
+function removeAddon(itemKey,uid){const item=order.find(o=>o.key===itemKey);if(item)item.addons=item.addons.filter(a=>a.uid!==uid);renderOrder();}
+function changeQty(key,d){const item=order.find(o=>o.key===key);if(!item)return;item.qty+=d;if(item.qty<=0)order=order.filter(o=>o.key!==key);renderOrder();}
+function renderOrder(){
+  const container=document.getElementById('order-items');
+  const billing=document.getElementById('billing-section');
+  const chargeBtn=document.getElementById('charge-btn');
+  if(order.length===0){
+    container.innerHTML='<div class="empty-state"><div class="empty-icon">🛒</div><div class="empty-text">No items yet</div></div>';
+    billing.style.display='none';chargeBtn.disabled=true;chargeBtn.textContent='Add to Billing';return;
+  }
+  container.innerHTML=order.map(item=>{
+    const aoTotal=item.addons.reduce((s,a)=>s+a.price,0);
+    const lineTotal=(item.price+aoTotal)*item.qty;
+    const chips=item.addons.map(a=>`<span class="addon-chip-tag">${a.name} +₱${a.price}<span class="chip-rmv" onclick="removeAddon('${item.key}','${a.uid}')">✕</span></span>`).join('');
+    return `<div class="order-item-wrap">
+      <div class="order-item">
+        <div class="order-item-emoji">${item.emoji}</div>
+        <div class="order-item-info">
+          <div class="order-item-name">${item.name}${item.size?' · '+item.size:''}</div>
+          <div class="order-item-sub">₱${item.price} each</div>
+        </div>
+        <div class="qty-ctrl">
+          <button class="qty-btn" onclick="changeQty('${item.key}',-1)">−</button>
+          <span class="qty-val">${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty('${item.key}',1)">+</button>
+        </div>
+        <div class="order-item-price">₱${lineTotal.toFixed(2)}</div>
+      </div>
+      ${chips?`<div class="addon-chips">${chips}</div>`:''}
+    </div>`;
+  }).join('');
+  const sub=order.reduce((s,o)=>s+(o.price+o.addons.reduce((a,x)=>a+x.price,0))*o.qty,0);
+  const vat=sub*0.12;const grand=sub+vat;
+  document.getElementById('subtotal').textContent=fmt(sub);
+  document.getElementById('vat').textContent=fmt(vat);
+  document.getElementById('total').textContent=fmt(grand);
+  billing.style.display='block';
+  if(selPayMethod){
+    chargeBtn.disabled=false;
+    const lbl={cash:'Cash',card:'Card',gcash:'GCash',maya:'Maya'};
+    chargeBtn.textContent='Charge ₱'+grand.toFixed(2)+' · '+lbl[selPayMethod];
+  } else {chargeBtn.disabled=true;chargeBtn.textContent='Select Payment Method';}
+}
+function selectPay(type,btn){
+  selPayMethod=type;
+  document.querySelectorAll('.pay-btn').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');if(order.length>0)renderOrder();
+}
+function charge(){
+  if(!selPayMethod||order.length===0)return;
+  const sub=order.reduce((s,o)=>s+(o.price+o.addons.reduce((a,x)=>a+x.price,0))*o.qty,0);
+  const grand=sub*1.12;
+  const lbl={cash:'Cash Payment',card:'Card Payment',gcash:'GCash',maya:'Maya'};
+  document.getElementById('suc-method').textContent=lbl[selPayMethod];
+  document.getElementById('suc-amount').textContent=fmt(grand);
+  document.getElementById('overlay').style.display='flex';
+}
+function newOrder(){
+  order=[];selPayMethod=null;orderCount++;
+  document.getElementById('order-num').textContent='#'+String(orderCount).padStart(3,'0');
+  document.getElementById('overlay').style.display='none';
+  document.querySelectorAll('.pay-btn').forEach(b=>b.classList.remove('selected'));
+  renderOrder();
+}
+function clearOrder(){order=[];selPayMethod=null;document.querySelectorAll('.pay-btn').forEach(b=>b.classList.remove('selected'));renderOrder();}
+function updateClock(){document.getElementById('clock').textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',second:'2-digit'});}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeItemModal();document.getElementById('overlay').style.display='none';}});
+document.getElementById('item-modal-overlay').addEventListener('click',e=>{if(e.target===document.getElementById('item-modal-overlay'))closeItemModal();});
+
+function toggleTheme(){
+  const isDark=document.documentElement.classList.toggle('dark');
+  document.getElementById('theme-btn').textContent=isDark?'☀️':'🌙';
+  localStorage.setItem('engkape-theme',isDark?'dark':'light');
+}
+if(localStorage.getItem('engkape-theme')==='dark'){
+  document.documentElement.classList.add('dark');
+  document.getElementById('theme-btn').textContent='☀️';
+}
+
+renderCats();renderProducts();renderOrder();updateClock();setInterval(updateClock,1000);
+
+</script>
+
+</body>
+</html>
